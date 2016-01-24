@@ -1,4 +1,23 @@
 var volume = 50;
+var musicTitle = "";
+var musicStates = {
+  play: 0,
+  pause: 1,
+  stop: 2
+}
+var musicState = musicStates.stop;
+var trackInfos = new TrackInfos();
+
+function onPause(){
+  console.log("State: pausing");
+}
+function onPlay(){
+  console.log("State: playing");
+}
+function onStop(){
+  console.log("State: stopping");
+}
+
 function playlist(){
 
   var actTrack = 0;
@@ -17,6 +36,18 @@ function playlist(){
     start(actTrack);
   }
   this.start = function start(trackNumber){
+    var FinishEvent = new CustomEvent("onFinishEvent");
+    var PauseEvent = new CustomEvent("onPauseEvent");
+    var PlayEvent = new CustomEvent("onPlayEvent");
+    document.body.addEventListener("onFinishEvent", function(){
+      onStop();
+    });
+    document.body.addEventListener("onPauseEvent", function(){
+      onPause();
+    });
+    document.body.addEventListener("onPlayEvent", function(){
+      onPlay();
+    });
     actTrack = trackNumber;
     if(actTrack < array.length && actTrack >= 0){
       console.log("next music");
@@ -25,21 +56,46 @@ function playlist(){
         case "yt":
           console.log("YouTube");
           youtube.startPlayer(track[1]);
+          musicTitle = trackInfos.getTrackTitle(track[0], track[1]);
+          musicState = musicStates.play;
           document.body.addEventListener("onYTFinishEvent", function(){
+            document.body.dispatchEvent(FinishEvent);
             actTrack++;
             playerYT = null;
+            musicTitle = "";
+            musicState = musicStates.stop;
             start(actTrack);
           });
-
+          document.body.addEventListener("onYTPauseEvent", function(){
+            document.body.dispatchEvent(PauseEvent);
+            musicState = musicStates.pause;
+          });
+          document.body.addEventListener("onYTPlayEvent", function(){
+            document.body.dispatchEvent(PlayEvent);
+            musicState = musicStates.play;
+          })
           break;
         case "sc":
           console.log("SoundCloud");
           soundcloud.startPlayer(track[1]);
+          musicTitle = trackInfos.getTrackTitle(track[0], track[1]);
+          musicState = musicStates.play;
           document.body.addEventListener("onSCFinishEvent", function(){
+            document.body.dispatchEvent(FinishEvent);
             actTrack++;
             widgetSC = null;
+            musicTitle = "";
+            musicState = musicStates.stop;
             start(actTrack);
           });
+          document.body.addEventListener("onSCPauseEvent", function(){
+            document.body.dispatchEvent(PauseEvent);
+            musicState = musicStates.pause;
+          });
+          document.body.addEventListener("onSCPlayEvent", function(){
+            document.body.dispatchEvent(PlayEvent);
+            musicState = musicStates.play;
+          })
           break;
         default:
           console.log("type de réseau audio non déclaré");

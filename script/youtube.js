@@ -1,7 +1,9 @@
-var YTFinishEvent = new CustomEvent("onYTFinishEvent");
+
 var playerYT = null;
 function youtube(){
-
+  var YTFinishEvent = new CustomEvent("onYTFinishEvent");
+  var YTPauseEvent = new CustomEvent("onYTPauseEvent");
+  var YTPlayEvent = new CustomEvent("onYTPlayEvent");
   this.startPlayer = function(videoID){
 
     var playerDiv = $("#playerDiv");
@@ -24,6 +26,10 @@ function youtube(){
       var playerDiv = $("#playerDiv");
       playerDiv.empty();
       document.body.dispatchEvent(YTFinishEvent);
+    }else if(event.data == YT.PlayerState.PAUSED){
+      document.body.dispatchEvent(YTPauseEvent);
+    }else if(event.data == YT.PlayerState.PLAYING){
+      document.body.dispatchEvent(YTPlayEvent);
     }
   }
   this.pausePlayer = function(){

@@ -6,7 +6,7 @@ function render(divName, playlistId){
   PLT.create(jQuery.parseJSON(playlistJSON));
 
   $(divName).empty();
-  var textToHtml = "<table border='1px'><tr><td>Channel</td><td>Title</td><td>Play</td></tr>";
+  var textToHtml = "<table border='1px'><tr><td id='channelRow'>Channel</td><td id='titleRow'>Title</td><td id='playRow'>Play</td></tr>";
 
   var trackInfo = new TrackInfos();
   var PLTArray = PLT.getPL()['playlist'];

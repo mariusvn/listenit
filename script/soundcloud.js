@@ -1,9 +1,11 @@
 var widgetSC = null;
 //var list = [227701533, 96768400];
 var isActive = false;
-var SCFinishEvent = new CustomEvent("onSCFinishEvent");
-function soundcloud(){
 
+function soundcloud(){
+    var SCFinishEvent = new CustomEvent("onSCFinishEvent");
+    var SCPauseEvent = new CustomEvent("onSCPauseEvent");
+    var SCPlayEvent = new CustomEvent("onSCPlayEvent");
   var stopSCPlayer = function(){
     var playerDiv = $("#playerDiv");
     playerDiv.empty();
@@ -20,7 +22,12 @@ function soundcloud(){
       widgetSC.setVolume(volume/100);
       widgetSC.play();
     });
-
+    widgetSC.bind(SC.Widget.Events.PAUSE, function(){
+        document.body.dispatchEvent(SCPauseEvent);
+    });
+    widgetSC.bind(SC.Widget.Events.PLAY,function(){
+        document.body.dispatchEvent(SCPlayEvent);
+    });
     widgetSC.bind(SC.Widget.Events.FINISH,function(){
       stopSCPlayer();
       document.body.dispatchEvent(SCFinishEvent);
@@ -29,6 +36,9 @@ function soundcloud(){
 
   this.isPlaying = function(){
 
+  }
+  this.pausePlayer = function(){
+      widgetSC.pause();
   }
 }
 var soundcloud = new soundcloud();
