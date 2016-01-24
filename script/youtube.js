@@ -27,8 +27,8 @@ function youtube(){
     }
   }
   this.pausePlayer = function(){
-    if(player.getPlayerState() == 1){
-      player.pauseVideo();
+    if(playerYT.getPlayerState() == 1){
+      playerYT.pauseVideo();
     }
   }
 }

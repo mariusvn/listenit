@@ -34,7 +34,7 @@ function register(){
       username: $("input[name=username_register]").val(),
       password: $("input[name=password_register]").val(),
       mail: $("input[name=email_register]").val(),
-      key: "AkVKGLCzAhjN"
+      key: "h8RK9ZSNZRdAvrgc"
     },
     success: function(page){
       alert(page);

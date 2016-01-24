@@ -1,12 +1,15 @@
 <?php
 include("../sql.php");
+include("api.php");
 $db = connect();
+use api\api;
+$apiHandler = new api();
 $json = array("valid" => false, "SQLError" => false, "success" => false);
 if(!isset($_GET["key"])){
 
     die(json_encode($json));
 }else{
-    if($_GET["key"] != "AkVKGLCzAhjN"){
+    if(!$apiHandler->isApiToken($_GET["key"], $db)){
         die(json_encode($json));
     }
 }

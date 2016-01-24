@@ -17,6 +17,7 @@
     <script src="script/playlist.js"></script>
     <script src="script/playlistRender.js"></script>
     <script src="script/TrackInfos.js"></script>
+    <script src="script/userPlaylist.js"></script>
     <script>
 
     </script>
@@ -29,9 +30,12 @@
     <div id="tab"></div>
     <button onclick='start(0, 2);'>Start playlist</button>
     <div id="tab2"></div>
+    <button onclick="start(0, 2);">Start playlist</button>
+    <div id="tab3"></div>
     <script>
     render("#tab", 1);
     render("#tab2", 2);
+    render("#tab3", 3);
     </script>
 
   </body>
