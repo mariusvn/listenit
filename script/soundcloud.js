@@ -40,5 +40,8 @@ function soundcloud(){
   this.pausePlayer = function(){
       widgetSC.pause();
   }
+  this.playPlayer = function(){
+      widgetSC.play();
+  }
 }
 var soundcloud = new soundcloud();

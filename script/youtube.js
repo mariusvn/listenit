@@ -16,8 +16,10 @@ function youtube(){
     });
     console.log("Youtube player created");
   }
+  var ready = false;
   var onPlayerReady = function(event){
     console.log("onPlayerReady released");
+    ready = true;
     event.target.setVolume(volume);
     event.target.playVideo();
   }
@@ -37,5 +39,10 @@ function youtube(){
       playerYT.pauseVideo();
     }
   }
+  this.playPlayer = function(){
+    if(playerYT.getPlayerState() == 2 && ready){
+      playerYT.playVideo();
+    }
+  }
 }
-var youtube = new youtube();
+var Youtube = new youtube();

@@ -18,6 +18,7 @@
     <script src="script/playlist.js"></script>
     <script src="script/playlistRender.js"></script>
     <script src="script/userPlaylist.js"></script>
+    <script src="script/playerButton.js"></script>
     <script>
 
     </script>

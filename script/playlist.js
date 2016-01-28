@@ -4,9 +4,15 @@ var musicStates = {
   play: 0,
   pause: 1,
   stop: 2
-}
+};
 var musicState = musicStates.stop;
 var trackInfos = new TrackInfos();
+var playerTypes = {
+    youtube: "yt",
+    soundcloud: "sc",
+    error: "error"
+};
+var playerType = playerTypes.error;
 
 function onPause(){
   console.log("State: pausing");
@@ -55,15 +61,17 @@ function playlist(){
       switch(track[0]){
         case "yt":
           console.log("YouTube");
-          youtube.startPlayer(track[1]);
+          Youtube.startPlayer(track[1]);
           musicTitle = trackInfos.getTrackTitle(track[0], track[1]);
           musicState = musicStates.play;
+          playerType = playerTypes.youtube;
           document.body.addEventListener("onYTFinishEvent", function(){
             document.body.dispatchEvent(FinishEvent);
             actTrack++;
             playerYT = null;
             musicTitle = "";
             musicState = musicStates.stop;
+            playerType = playerTypes.error;
             start(actTrack);
           });
           document.body.addEventListener("onYTPauseEvent", function(){
@@ -80,12 +88,14 @@ function playlist(){
           soundcloud.startPlayer(track[1]);
           musicTitle = trackInfos.getTrackTitle(track[0], track[1]);
           musicState = musicStates.play;
+          playerType = playerTypes.soundcloud;
           document.body.addEventListener("onSCFinishEvent", function(){
             document.body.dispatchEvent(FinishEvent);
             actTrack++;
             widgetSC = null;
             musicTitle = "";
             musicState = musicStates.stop;
+            playerType = playerTypes.error;
             start(actTrack);
           });
           document.body.addEventListener("onSCPauseEvent", function(){
