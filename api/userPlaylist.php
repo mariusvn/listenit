@@ -3,8 +3,7 @@
 include("../sql.php");
 include("web.php");
 $db = connect();
-use api\api;
-$apiHandler = new api();
+$apiHandler = new web();
 $json = array("valid" => false, "SQLError" => false, "success" => false, "reason" => "", "result" => array());
 if(!isset($_GET["uuid"]) || !isset($_GET["key"]) || !isset($_GET["perm"])){
     $json["reason"] = "please complete parameters";

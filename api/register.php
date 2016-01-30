@@ -4,7 +4,7 @@
     include("web.php");
 
     $db = connect();
-    $apiHandler = new api();
+    $apiHandler = new web();
 
     $json = array("status" => "null", "details" => "null");
 
@@ -22,15 +22,15 @@
         }
     }
     // IF WAR *-*
-    if(!isset($_GET["username"]) || ($_GET["username"] != "")){
-        if(!isset($_GET["password"]) || ($_GET["password"] != "")){
-            if(!isset($_GET["mail"]) || ($_GET["mail"] != "")){
-                if(!isset($_GET['password2']) || ($_GET["password2"] != "")){
+    if(isset($_GET["username"]) && ($_GET["username"] != "")){
+        if(isset($_GET["password"]) && ($_GET["password"] != "")){
+            if(isset($_GET["mail"]) && ($_GET["mail"] != "")){
+                if(isset($_GET['password2']) && ($_GET["password2"] != "")){
                     if($_GET['password2'] == $_GET['password']){
                         if(($apiHandler->UsernameExists($_GET['username'], $db)) == false){
                             if(($apiHandler->EmailUsed($_GET['mail'], $db)) == false){
 
-                                $hashed_password = md5($_GET['password'] + "PjSalt"); // md5 + salt
+                                $hashed_password = md5($_GET['password'] . "PjSalt"); // md5 + salt
                                 $username = htmlspecialchars($_GET['username']);
                                 $email = htmlspecialchars($_GET['mail']);
 
@@ -63,7 +63,7 @@
                                     $UUID,
                                     $sessionID_,
                                     0,              // premium
-                                    0,     // premium date limit
+                                    0,              // premium date limit
                                     0               // is admin
                                 ));
                                 if(!$result){
@@ -73,7 +73,7 @@
                                 $_SESSION['user']['username'] = $username;
                                 $_SESSION['user']['password_hash'] = $hashed_password;
                                 $_SESSION['user']['sessionID'] = $sessionID_;
-                                $json = array("status" => "valid", "details" => "apikey.invalid");
+                                $json = array("status" => "valid", "details" => "success");
                                 die(json_encode($json));
 
                             }else{ // EMAIL ALREADY TAKEN

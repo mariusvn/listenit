@@ -22,6 +22,29 @@ function displayError(title, message){
   $('.error-box #topic').html(message);
 
 }
+function getString(str){
+  if(str == "username.empty")
+      return "Le champ nom d'utilisateur est vide.";
+  if(str == "password.empty")
+      return "Le champ mot de passe est vide.";
+  if(str == "email.empty")
+      return "Le champ e-mail est vide.";
+  if(str == "password2.empty")
+      return "le champ confirmation de mot de passe est vide.";
+  if(str == "login.wrong")
+      return "le nom d'utilisateur ou le mot de passe est éronné.";
+  if(str == "SQLError")
+      return "Bug de requête SQL, veuillez reporter l'erreur \"SQLError\"";
+  if(str == "passwords.nomatch")
+      return "Les deux mots de passes ne sont pas les mêmes.";
+  if(str == "username.took")
+      return "Le nom d'utilisateur est déjà utilisé par un autre utilisateur";
+  if(str == "email.took")
+      return "L'e-mail est déjà utilisé.";
+
+  return str;
+
+}
 function register(){
   $('#register_reg').prop('disabled', true);
   $.ajax({
@@ -41,7 +64,10 @@ function register(){
         displayError("Erreur", json.details);
         $('#register_reg').prop('disabled', false);
       }else{
-        //skip();
+        $("input[name=username_register]").val("");
+        $("input[name=password_register]").val("");
+        $("input[name=password_confirm_register]").val("");
+        $("input[name=email_register]").val("");
       }
     }
   });
@@ -53,12 +79,12 @@ function login(){
     method: 'GET',
     data: {
       username: $("input[name=username_login]").val(),
-      password: $("input[name=passzword_login]").val()
+      password: $("input[name=password_login]").val()
     },
     success: function(ret){
       var json = jQuery.parseJSON(ret);
-      if(json.status = "error" && json.details != null){
-        displayError("Erreur", json.details);
+      if(json.status == "error" && json.details != null){
+        displayError("Erreur", getString(json.details));
         $("login_log").prop('disabled', false);
       }else{
         //skip();

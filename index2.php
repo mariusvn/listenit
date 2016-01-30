@@ -28,7 +28,7 @@
     </div>
     <div class="log-wrapper">
       <div class="login-form" id="login-form-block">
-        <h2 id="head">Se connecter.</h2>
+        <h2 id="head">Se connecter</h2>
         </br>
         <input id="input" type="text" name="username_login" placeholder="Nom de compte">
         <input id="input" type="password" name="password_login" placeHolder="Mot de passe">
