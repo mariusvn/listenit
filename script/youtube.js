@@ -7,7 +7,7 @@ function youtube(){
   this.startPlayer = function(videoID){
 
     var playerDiv = $("#playerDiv");
-    playerDiv.html('<iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/'+videoID+'?&amp;autoplay=0&amp;theme=dark&amp;enablejsapi=1" frameborder="0" allowfullscreen></iframe>');
+    playerDiv.html('<iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/'+videoID+'?&amp;autoplay=1&amp;theme=dark&amp;controls=1&amp;rel=0&amp;fs=0&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen></iframe>');
     playerYT = new YT.Player('player', {
       events: {
         'onReady': onPlayerReady,

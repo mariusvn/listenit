@@ -1,5 +1,11 @@
 
 function TrackInfos(){
+  var bannedWords = [
+      "(\\\[Clip Officiel\\\])",
+      "(\\\[clip officiel\\\])",
+      "(\\\[Official\\\])",
+      "(\\\(Audio\\\))"
+  ];
   this.create = function(){}
   this.getTrackTitle = function(network, id){
     switch(network){
@@ -10,6 +16,9 @@ function TrackInfos(){
         }).responseText;
         ret = jQuery.parseJSON(ret);
         ret = ret.items[0].snippet.title;
+        for(var i = 0; i < bannedWords.length; i++){
+          ret = ret.replace(new RegExp(bannedWords[i], "g"), "");
+        }
         return ret;
         break;
       case "sc":
@@ -19,6 +28,9 @@ function TrackInfos(){
         }).responseText;
         ret = jQuery.parseJSON(ret);
         ret = ret.title;
+        for(var i = 0; i < bannedWords.length; i++){
+          ret = ret.replace(new RegExp(bannedWords[i], "g"), "");
+        }
         return ret;
         break;
       default:
