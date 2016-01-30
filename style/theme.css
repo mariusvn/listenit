@@ -107,13 +107,14 @@ button{
   right:0;
   left:0;
   bottom:0;
-  z-index:-999;
+  z-index:1;
+  display: none;
 }
 .error-box{
   position:absolute;
   top:40px;
-  right:40%;
-  left:40%;
+  margin-left: calc(50% - 185px);
+  min-width: 370px;
   background-color:white;
   border: 1px solid rgb(185,185,185);
   border-radius: 1px;
@@ -121,7 +122,8 @@ button{
   padding:8px;
   background-color:#fff;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  z-index:-999;
+  z-index:1;
+  display: none;
 }
 .error-box > #title{
   color:#333;
@@ -130,7 +132,12 @@ button{
   font-size:1.5em;
   text-transform: capitalize;
   margin-bottom:5px;
+  color: #e74c3c;
+  margin-left: calc(50% - 80px);
+  display:  inline-block;
 }
 .error-box > #topic{
   color:#222;
+  margin-top: 15px;
+  display:  inline-block;
 }

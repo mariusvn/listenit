@@ -18,6 +18,7 @@
   <body>
     <div class="hidden-black"></div>
     <div class="error-box">
+      <img src="imgs/warning48.png" width="48" height="48"/>
       <span id="title"></span></br>
       <span id="topic"></span>
     </div>
