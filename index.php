@@ -22,6 +22,9 @@
       <script src="script/playerButton.js"></script>
 
     <style>
+      *{
+          font-family: Arial;
+      }
       #playerDiv{
         border: solid 1px;
         height: 315px;
