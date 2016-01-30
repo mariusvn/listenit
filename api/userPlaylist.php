@@ -1,7 +1,7 @@
 <?php
 //TODO modifier pour que l'acces aux playlist à perm niveau 2 soir restrinte
 include("../sql.php");
-include("api.php");
+include("web.php");
 $db = connect();
 use api\api;
 $apiHandler = new api();

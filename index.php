@@ -1,7 +1,6 @@
 <?php
-  include("sql.php");
+  include("./api/sql.php");
   include("php/track.php");
-  //include("php/playlist.php");
   $db = connect();
 ?>
 <!DOCTYPE html>
@@ -71,13 +70,7 @@
     <button onclick="start(0, 4);">Start playlist</button>
     <div id="tab3"></div><br/>
 
-    <div id="loading">
-        <!-- loading screen -->
-        <div id="ldingCen">
-            <img src="imgs/ajax-loader.gif"/>
-            <p>loading ...</p>
-        </div>
-    </div>
+
     <script>
         $(document).ready()
         {

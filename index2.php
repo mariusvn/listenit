@@ -1,3 +1,10 @@
+<?php
+  include('api/web.php');
+  include('api/sql.php');
+  session_start();
+  $apiH = new web();
+  $db = connect();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -26,8 +33,8 @@
         <input id="input" type="text" name="username_login" placeholder="Nom de compte">
         <input id="input" type="password" name="password_login" placeHolder="Mot de passe">
         <div>
-          <button>Se connecter</button>
-          <button onClick="right();">S'inscrire</button>
+          <button onclick="login();" id="login_log">Se connecter</button>
+          <button onClick="right();" id="register_log">S'inscrire</button>
         </div>
       </div>
       <div class="login-form" id="register-form-block">
@@ -38,10 +45,15 @@
         <input id="input" type="password" name="password_confirm_register" placeHolder="Verif. Mot de passe">
         <input id="input" type="email" name="email_register" placeHolder="Email">
         <div>
-          <button onClick="left();">Se connecter</button>
-          <button onClick="">S'inscrire</button>
+          <button onClick="left();" id="login_reg">Se connecter</button>
+          <button onClick="register();" id="register_reg">S'inscrire</button>
         </div>
       </div>
     </div>
+    <?php
+      if($apiH->ConnValid($_SESSION['user'], $db)){
+        echo '<script>valid();</script>';
+      }
+    ?>
   </body>
 </html>

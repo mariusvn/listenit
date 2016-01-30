@@ -2,7 +2,7 @@
   if(!isset($_GET['ide']) || $_GET['ide'] == null ){
     die("no id");
   }
-  include("../sql.php");
+  include("sql.php");
   $db = connect();
   $id = htmlspecialchars($_GET['ide']);
   $stringQuery = "SELECT * FROM `playlists` WHERE `id`=$id";

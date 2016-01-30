@@ -22,35 +22,50 @@ function displayError(title, message){
   $('.error-box #topic').html(message);
 
 }
-//TODO faire le filtre pour le form register (verif si c'est bien un email, le username n'existe pas encore, etc ...
-/*
-  register return array(isSuccess(bool), reasonOfError(array(isErrorKey(bool), isErrorSQL(bool))));
- */
 function register(){
+  $('#register_reg').prop('disabled', true);
   $.ajax({
     url: "api/register.php",
     method: 'GET',
     data: {
       username: $("input[name=username_register]").val(),
       password: $("input[name=password_register]").val(),
+      password2: $("input[name=password_confirm_register]").val(),
       mail: $("input[name=email_register]").val(),
       key: "h8RK9ZSNZRdAvrgc"
     },
     success: function(page){
-      alert(page);
       var json = jQuery.parseJSON(page);
-      if(json.valid == true && json.SQLError == false && json.success == true){
-        return [true, [false, false]];
+
+      if(json.status == "error" && json.details != null){
+        displayError("Erreur", json.details);
+        $('#register_reg').prop('disabled', false);
       }else{
-        var res = [false, false];
-        if(json.valid == false){
-          res[0] = true;
-        }
-        if(json.SQLError == true){
-          res[1] = true;
-        }
+        //skip();
       }
     }
-  })
-
+  });
+}
+function login(){
+  $("login_log").prop('disabled', true);
+  $.ajax({
+    url: "api/login.php",
+    method: 'GET',
+    data: {
+      username: $("input[name=username_login]").val(),
+      password: $("input[name=passzword_login]").val()
+    },
+    success: function(ret){
+      var json = jQuery.parseJSON(ret);
+      if(json.status = "error" && json.details != null){
+        displayError("Erreur", json.details);
+        $("login_log").prop('disabled', false);
+      }else{
+        //skip();
+      }
+    }
+  });
+}
+function valid(){
+  $("body").html("");
 }
