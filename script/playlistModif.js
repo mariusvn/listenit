@@ -8,10 +8,10 @@ Array.prototype.move = function (old_index, new_index) {
     this.splice(new_index, 0, this.splice(old_index, 1)[0]);
     return this;
 };
-var pl = null;
-function playlistManager(){
-    this.move = function(playlistId, baseIndex, nextIndex){
-        pl = getPlaylist(playlistId);
+
+function playlistManager() {
+    this.move = function (playlistId, baseIndex, nextIndex) {
+        var pl = getPlaylist(playlistId);
         pl.playlist.move(baseIndex, nextIndex);
         var res = $.ajax({
             url: "api/updatePlaylist.php",
@@ -20,17 +20,19 @@ function playlistManager(){
                 id: playlistId,
                 plJson: JSON.stringify(pl)
             },
-            success: function(resText){
+            success: function (resText) {
                 res = jQuery.parseJSON(resText);
-                if(res.status == "error"){
+                if (res.status == "error") {
                     alert("error: " + resText);
+                } else {
+                    playlistPlaying.setPL(pl.playlist, baseIndex, nextIndex);
                 }
 
             }
         })
 
     };
-    var getPlaylist = function(index){
+    var getPlaylist = function (index) {
 
         var res = $.ajax({
             url: "api/playlistFinder.php",
@@ -47,16 +49,16 @@ function playlistManager(){
 }
 
 
-$(document).ready(function(){
+$(document).ready(function () {
     var PlaylistManager = new playlistManager();
-    var pos = [0,0,0];
+    var pos = [0, 0, 0];
     $('.playlistTable').sortable({
         items: "tr:not(.not_sortable)",
-        start: function(event, ui){
+        start: function (event, ui) {
             pos[1] = ui.item.index() - 2;
             pos[0] = ui.item.parent(".playlistTable").children("#tablePlaylistId").val();
         },
-        stop: function(event, ui){
+        stop: function (event, ui) {
             pos[2] = ui.item.index() - 2;
             PlaylistManager.move(pos[0], pos[1], pos[2]);
         }
