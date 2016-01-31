@@ -1,5 +1,4 @@
-$(document).ready()
-{
+
   function render(divName, playlistId) {
 
     //Json object
@@ -8,7 +7,7 @@ $(document).ready()
     PLT.create(jQuery.parseJSON(playlistJSON));
 
     $(divName).empty();
-    var textToHtml = "<table border='1px'><tr><td id='channelRow'>Channel</td><td id='titleRow'>Title</td><td id='playRow'>Play</td></tr>";
+    var textToHtml = "<tbody class='playlistTable'><input type='hidden' id='tablePlaylistId' name='playlistId' value='" + playlistId + "'/> <tr class='not_sortable'><td id='channelRow'>Channel</td><td id='titleRow'>Title</td><td >Play</td></tr>";
 
     var trackInfo = new TrackInfos();
     var PLTArray = PLT.getPL()['playlist'];
@@ -18,9 +17,9 @@ $(document).ready()
       var tempTrack = PLTArray[i];
       var title = trackInfo.getTrackTitle(tempTrack[0], tempTrack[1]);
       var author = trackInfo.getTrackAuthor(tempTrack[0], tempTrack[1]);
-      textToHtml += "<tr><td>" + author + "</td><td>" + title + "</td><td><button onclick='start(" + i + ", " + playlistId + ");'>Lire</button></td></tr>";
+      textToHtml += "<tr class='draggable'><td>" + author + "</td><td>" + title + "</td><td class='plerRow'><a onclick='start(" + i + ", " + playlistId + ");'><img src='imgs/media23.png'/> </a></td></tr>";
     }
-    textToHtml += "</table>";
+    textToHtml += "</tbody>";
     $(divName).html(textToHtml);
   }
 
@@ -36,4 +35,3 @@ $(document).ready()
     }
 
   }
-}
