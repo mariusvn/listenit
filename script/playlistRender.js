@@ -17,7 +17,7 @@
       var tempTrack = PLTArray[i];
       var title = trackInfo.getTrackTitle(tempTrack[0], tempTrack[1]);
       var author = trackInfo.getTrackAuthor(tempTrack[0], tempTrack[1]);
-      textToHtml += "<tr class='draggable'><td>" + author + "</td><td>" + title + "</td><td class='plerRow'><a onclick='start(" + i + ", " + playlistId + ");'><img src='imgs/media23.png'/> </a></td></tr>";
+      textToHtml += "<tr class='draggable sortable'><td>" + author + "</td><td>" + title + "</td><td class='plerRow'><a onclick='start(" + i + ", " + playlistId + ");'><img src='imgs/media23.png'/> </a></td></tr>";
     }
     textToHtml += "</tbody>";
     $(divName).html(textToHtml);
