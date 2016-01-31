@@ -23,7 +23,8 @@
     margin: 0px;
     overflow: hidden;
 }
-
+body{
+}
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
@@ -37,16 +38,15 @@ input:-webkit-autofill {
     right: -40px;
     left: -40px;
     bottom: -40px;
-    filter: blur(20px);
-    -webkit-filter: blur(20px);
+    filter: blur(7px);
+    -webkit-filter: blur(7px);
     padding: 10px 10px;
 }
 
 .head-wrapper {
     position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 15vh;
+    margin-left: calc(50% - 200px);
     padding: 5px;
 }
 
@@ -107,7 +107,7 @@ input:-webkit-autofill {
 
 .log-wrapper {
     position: relative;
-    margin-top: 25%;
+    margin-top: 55vh;
     width: 4096px;
 }
 
