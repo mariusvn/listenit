@@ -28,6 +28,7 @@
     <div class="bg-holder"></div>
     <?php
       if(!$apiH->ConnValid($_SESSION['user'], $db)) {
+        unset($_SESSION['user']);
         ?>
         <div class="head-wrapper">
           <h1 id="title">ListenIT</h1>
@@ -62,7 +63,26 @@
         </div>
         <?php
       }else{
-        //session_unset($_SESSION['user']);
+        ?>
+        <div class="left-wrapper">
+          <div class="user-space">
+            <img class="img" src="<?php echo $apiH->getAvatar($_SESSION['user']['uuid']); ?>">
+            <div class="username"><?php echo $_SESSION['user']['username']; ?></div>
+            <div class="clear-fix"></div>
+          </div>
+          <div class="under-space">
+            <div class="item-menu active">
+              Tendances du moment
+            </div>
+            <div class="item-menu">
+              Playlists du mois
+            </div>
+            <div class="item-menu">
+              Mes playlists
+            </div>
+          </div>
+        </div>
+    <?php
       }
     ?>
   </body>
