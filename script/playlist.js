@@ -51,18 +51,12 @@ $(document).ready()
             var FinishEvent = new CustomEvent("onFinishEvent");
             var PauseEvent = new CustomEvent("onPauseEvent");
             var PlayEvent = new CustomEvent("onPlayEvent");
-            document.body.addEventListener("onFinishEvent", function () {
-                onStop();
-            });
-            document.body.addEventListener("onPauseEvent", function () {
-                onPause();
-            });
-            document.body.addEventListener("onPlayEvent", function () {
-                onPlay();
-            });
+            document.body.addEventListener("onFinishEvent", onStop);
+            document.body.addEventListener("onPauseEvent", onPause);
+            document.body.addEventListener("onPlayEvent", onPlay);
             actTrack = trackNumber;
             if (actTrack < array.length && actTrack >= 0) {
-                console.log("next music");
+                console.log("next music: " + actTrack);
                 var track = array[actTrack];
                 switch (track[0]) {
                     case "yt":
@@ -72,23 +66,32 @@ $(document).ready()
                         txtRenderer.setTrackName(musicTitle);
                         musicState = musicStates.play;
                         playerType = playerTypes.youtube;
-                        document.body.addEventListener("onYTFinishEvent", function () {
+                        var YTfinishHandler = function(){
                             document.body.dispatchEvent(FinishEvent);
                             actTrack++;
                             playerYT = null;
                             musicTitle = "";
                             musicState = musicStates.stop;
                             playerType = playerTypes.error;
+                            document.body.removeEventListener("onYTFinishEvent", YTfinishHandler);
+                            document.body.removeEventListener("onYTPauseEvent", YTPauseHandler);
+                            document.body.removeEventListener("onYTPlayEvent", YTPlayHandler);
+                            document.body.removeEventListener("onFinishEvent", onStop);
+                            document.body.removeEventListener("onPauseEvent", onPause);
+                            document.body.removeEventListener("onPlayEvent", onPlay);
                             start(actTrack);
-                        });
-                        document.body.addEventListener("onYTPauseEvent", function () {
+                        };
+                        document.body.addEventListener("onYTFinishEvent", YTfinishHandler);
+                        var YTPauseHandler =  function(){
                             document.body.dispatchEvent(PauseEvent);
                             musicState = musicStates.pause;
-                        });
-                        document.body.addEventListener("onYTPlayEvent", function () {
+                        };
+                        document.body.addEventListener("onYTPauseEvent", YTPauseHandler);
+                        var YTPlayHandler = function(){
                             document.body.dispatchEvent(PlayEvent);
                             musicState = musicStates.play;
-                        })
+                        };
+                        document.body.addEventListener("onYTPlayEvent", YTPlayHandler);
                         break;
                     case "sc":
                         console.log("SoundCloud");
@@ -97,23 +100,32 @@ $(document).ready()
                         txtRenderer.setTrackName(musicTitle);
                         musicState = musicStates.play;
                         playerType = playerTypes.soundcloud;
-                        document.body.addEventListener("onSCFinishEvent", function () {
+                        var SCFinishHandler = function(){
                             document.body.dispatchEvent(FinishEvent);
                             actTrack++;
                             widgetSC = null;
                             musicTitle = "";
                             musicState = musicStates.stop;
                             playerType = playerTypes.error;
+                            document.body.removeEventListener("onSCFinishEvent", SCFinishHandler);
+                            document.body.removeEventListener("onSCPauseEvent", SCPauseHandler);
+                            document.body.removeEventListener("onSCPlayEvent", SCPlayHandler);
+                            document.body.removeEventListener("onFinishEvent", onStop);
+                            document.body.removeEventListener("onPauseEvent", onPause);
+                            document.body.removeEventListener("onPlayEvent", onPlay);
                             start(actTrack);
-                        });
-                        document.body.addEventListener("onSCPauseEvent", function () {
+                        };
+                        document.body.addEventListener("onSCFinishEvent", SCFinishHandler);
+                        var SCPauseHandler = function(){
                             document.body.dispatchEvent(PauseEvent);
                             musicState = musicStates.pause;
-                        });
-                        document.body.addEventListener("onSCPlayEvent", function () {
+                        };
+                        document.body.addEventListener("onSCPauseEvent", SCPauseHandler);
+                        var SCPlayHandler = function(){
                             document.body.dispatchEvent(PlayEvent);
                             musicState = musicStates.play;
-                        })
+                        };
+                        document.body.addEventListener("onSCPlayEvent", SCPlayHandler);
                         break;
                     default:
                         console.log("type de réseau audio non déclaré");
@@ -137,6 +149,8 @@ $(document).ready()
 
         };
         this.setPL = function (arrayPl, lastIndex, newIndex) {
+            if(lastIndex == newIndex)
+                return;
             array = arrayPl;
             if (lastIndex == actTrack) {
                 actTrack = newIndex;
