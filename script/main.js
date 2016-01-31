@@ -16,8 +16,8 @@ function left(){
   $('.log-wrapper').removeClass('right').addClass('left');
 }
 function displayError(title, message){
-  $('.hidden-black').fadeIn(50);
-  $('.error-box').fadeIn(50);
+  $('.hidden-black').fadeIn(250);
+  $('.error-box').fadeIn(250);
   $('.error-box #title').html(title);
   $('.error-box #topic').html(message);
 
@@ -68,6 +68,7 @@ function register(){
         $("input[name=password_register]").val("");
         $("input[name=password_confirm_register]").val("");
         $("input[name=email_register]").val("");
+        skip();
       }
     }
   });
@@ -84,14 +85,14 @@ function login(){
     success: function(ret){
       var json = jQuery.parseJSON(ret);
       if(json.status == "error" && json.details != null){
-        displayError("Erreur", getString(json.details));
+        displayError("Erreur", json.details);
         $("login_log").prop('disabled', false);
       }else{
-        //skip();
+        skip();
       }
     }
   });
 }
-function valid(){
-  $("body").html("");
+function skip(){
+  location.reload();
 }

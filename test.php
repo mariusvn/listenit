@@ -56,6 +56,14 @@
   </br>
     <button onClick="right()">Right</button>
     <button onClick="left()">Left</button>
-
+    <?php
+      session_start();
+    var_dump($_SESSION['user']);
+    include('api/web.php');
+    include('api/sql.php');
+    $apiH = new web();
+    $db = connect();
+    echo $apiH->ConnValid($_SESSION['user'], $db);
+    ?>
   </body>
 </html>
