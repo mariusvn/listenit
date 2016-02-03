@@ -230,6 +230,7 @@ button {
     font-size: 1.1em;
     font-weight: 400;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .active {
@@ -243,5 +244,15 @@ button {
 }
 
 .item-menu-bottom {
+    padding: 15px;
+    font-size: 1.1em;
+    font-weight: 400;
+    transition: 0.3s;
+    bottom: 0;
+    width: 210px;
+}
 
+.item-menu-bottom:hover {
+    background-color: #414141;
+    transition: 0.3s;
 }

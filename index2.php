@@ -39,8 +39,8 @@
           <div class="login-form" id="login-form-block">
             <h2 id="head">Se connecter</h2>
             </br>
-            <input id="input" type="text" name="username_login" placeholder="Nom de compte">
-            <input id="input" type="password" name="password_login" placeHolder="Mot de passe">
+            <input id="input" class="login_form" type="text" name="username_login" placeholder="Nom de compte">
+            <input id="input" class="login-form" type="password" name="password_login" placeHolder="Mot de passe">
 
             <div>
               <button onClick="login();" id="login_log">Se connecter</button>
@@ -50,10 +50,10 @@
           <div class="login-form" id="register-form-block">
             <h2 id="head">S'inscrire</h2>
             </br>
-            <input id="input" type="text" name="username_register" placeholder="Nom de compte">
-            <input id="input" type="password" name="password_register" placeHolder="Mot de passe">
-            <input id="input" type="password" name="password_confirm_register" placeHolder="Verif. Mot de passe">
-            <input id="input" type="email" name="email_register" placeHolder="Email">
+            <input id="input" class="signup_form" type="text" name="username_register" placeholder="Nom de compte">
+            <input id="input" class="signup_form" type="password" name="password_register" placeHolder="Mot de passe">
+            <input id="input" class="signup_form" type="password" name="password_confirm_register" placeHolder="Verif. Mot de passe">
+            <input id="input" class="signup_form" type="email" name="email_register" placeHolder="Email">
 
             <div>
               <button onClick="left();" id="login_reg">Se connecter</button>
@@ -79,6 +79,10 @@
             </div>
             <div class="item-menu">
               Mes playlists
+            </div>
+
+            <div class="item-menu disconnect">
+              Déconnection
             </div>
           </div>
         </div>
