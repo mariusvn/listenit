@@ -65,25 +65,29 @@
       }else{
         ?>
         <div class="left-wrapper">
-          <div class="user-space">
+          <div class="user-space" onClick="displayError('Erreur','Fonctionalit&eacute; non developp&eacute;e')">
             <img class="img" src="<?php echo $apiH->getAvatar($_SESSION['user']['uuid']); ?>">
             <div class="username"><?php echo $_SESSION['user']['username']; ?></div>
             <div class="clear-fix"></div>
           </div>
           <div class="under-space">
+            <div class="item-menu" onClick="displayError('Erreur','Fonctionalit&eacute; non developp&eacute;e')">
+              [D]Tendances du moment
+            </div>
+            <div class="item-menu" onClick="displayError('Erreur','Fonctionalit&eacute; non developp&eacute;e')">
+              [D]Playlists du mois
+            </div>
             <div class="item-menu active">
-              Tendances du moment
-            </div>
-            <div class="item-menu">
-              Playlists du mois
-            </div>
-            <div class="item-menu">
               Mes playlists
             </div>
             <div class="item-menu-bottom disconnect">
               D&eacute;connection
             </div>
           </div>
+        </div>
+        <div class="main-wrapper">
+          <div id="player"></div>
+          <div id="track"></div>
         </div>
     <?php
       }

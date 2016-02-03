@@ -3,14 +3,14 @@
 
     //Json object
     var playlistJSON = getPlaylist(playlistId);
-    var PLT = new playlist();
+    var PLT = new Playlist();
     PLT.create(jQuery.parseJSON(playlistJSON));
 
     $(divName).empty();
     var textToHtml = "<tbody class='playlistTable'><input type='hidden' id='tablePlaylistId' name='playlistId' value='" + playlistId + "'/> <tr class='not_sortable'><td id='channelRow'>Channel</td><td id='titleRow'>Title</td><td >Play</td></tr>";
 
     var trackInfo = new TrackInfos();
-    var PLTArray = PLT.getPL()['playlist'];
+    var PLTArray = PLT.getPL()['Playlist'];
 
     for (var i = 0; i < PLTArray.length; i++) {
 

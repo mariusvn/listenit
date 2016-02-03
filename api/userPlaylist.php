@@ -1,5 +1,5 @@
 <?php
-//TODO modifier pour que l'acces aux playlist à perm niveau 2 soir restrinte
+//TODO modifier pour que l'acces aux Playlist à perm niveau 2 soir restrinte
 include("../sql.php");
 include("web.php");
 $db = connect();
@@ -39,7 +39,7 @@ if($res) {
     $json["valid"] = true;
     die(json_encode($json));
 }
-//playlist recovering
+//Playlist recovering
 $queryStr = "SELECT * FROM `playlists` WHERE `author`='$uuid' AND `restrictionLevel`=$perm";
 $res = $db->query($queryStr);
 if($res){

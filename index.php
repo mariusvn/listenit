@@ -29,34 +29,14 @@
   </head>
   <body>
     <div id="TrackName"></div>
-    <div id="playerDiv" >
-
-    </div>
-
-    <button onclick='start(0, 1);'>Start playlist</button>
-    <div id="tab"></div><br/>
-    <button onclick='start(0, 2);'>Start playlist</button>
-    <div id="tab2"></div><br/>
-    <button onclick="start(0, 4);">Start playlist</button>
-    <div id="tab3"></div><br/>
-
+    <div id="playerDiv" ></div>
 
     <script>
-        $(document).ready()
-        {
-            function hideLoading(){
-                $('#loading').fadeOut();
-            }
-            render("#tab", 1);
-            render("#tab2", 2);
-            render("#tab3", 4);
-            var txtRenderer = new trackName("#TrackName");
-            setTimeout(function(){
-                hideLoading();
-            }, 1000);
+        var OBJ = new Playlist();
 
-
-        }
+        $(document).ready(function(){
+            OBJ.create(jQuery.parseJSON(getPlaylist(3)));
+        });
     </script>
   </body>
 </html>

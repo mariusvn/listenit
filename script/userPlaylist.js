@@ -3,7 +3,7 @@ function userPlaylist(){
     /*
      * getUserTrack(uuid, persission)
      * uuid = user unique id
-     * permission = level of permission of the playlist:    0: public
+     * permission = level of permission of the Playlist:    0: public
      *                                                      1: not displayed
      *                                                      2: private
      */

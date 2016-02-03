@@ -18,7 +18,7 @@ if(isset($_GET['id']) && $_GET['id'] != ""){
                 if (count($query) > 0) {
                     if ($query['restrictionLevel'] == 0 || $query['restrictionLevel'] == 1) {
                         //public or not displayed
-                        $res = $db->query("UPDATE `playlists` SET `playlist`='".$_GET['plJson']."' WHERE `id`=".$_GET['id'].";");
+                        $res = $db->query("UPDATE `playlists` SET `Playlist`='".$_GET['plJson']."' WHERE `id`=".$_GET['id'].";");
                         if(!$res){
                             //SQLError
                             $json = array("status" => "error", "details" => "SQLError.1");
@@ -39,7 +39,7 @@ if(isset($_GET['id']) && $_GET['id'] != ""){
                     }
                 } else {
                     //PLAYLIST NOT EXISTS
-                    $json = array("status" => "error", "details" => "playlist.notExists");
+                    $json = array("status" => "error", "details" => "Playlist.notExists");
                     die(json_encode($json));
                 }
             } else {
@@ -54,7 +54,7 @@ if(isset($_GET['id']) && $_GET['id'] != ""){
         }
     }else{
         //PLAYLIST EMPTY
-        $json = array("status" => "error", "details" => "playlist.empty");
+        $json = array("status" => "error", "details" => "Playlist.empty");
         die(json_encode($json));
     }
 }else{

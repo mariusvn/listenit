@@ -34,6 +34,23 @@
       .left{
         transform: translate(0, 0);
       }
+      #player-holder{
+        display:none;
+      }
+      #playlist{
+        padding:15px;
+        background-color:red;
+      }
+      #player{
+        float:left;
+
+      }
+      #tracklist{
+        float:left;
+      }
+      .clearfix{
+        clear:both;
+      }
     </style>
     <script>
       function right(){
@@ -42,6 +59,13 @@
       function left(){
         $('#wrapper').removeClass('right').addClass('left');
       }
+      $(document).ready(function(){
+        $("#playlist").click(function(){
+          var ret = ($('#player-holder').css('display') == "none") ? "block" : "none";
+          $('#player-holder').css('display', ret);
+        });
+      });
+
     </script>
   </head>
   <body>
@@ -50,20 +74,24 @@
       <div id="register"></div>
       <div style="clear:both;"></div>
     </div>
-  </br>
-  </br>
-  </br>
-  </br>
     <button onClick="right()">Right</button>
     <button onClick="left()">Left</button>
-    <?php
-      session_start();
-    var_dump($_SESSION['user']);
-    include('api/web.php');
-    include('api/sql.php');
-    $apiH = new web();
-    $db = connect();
-    echo $apiH->ConnValid($_SESSION['user'], $db);
-    ?>
+
+    <div id="playlist">
+      <span>TITRE</span>
+      <div id="player-holder">
+        <div id="player">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/PVbQDYzPRYQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div id="tracklist">
+          <table>
+            <tr><td>TEST</td></tr>
+            <tr><td>TEST2</td></tr>
+            <tr><td>TEST3</td></tr>
+          </table>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
   </body>
 </html>

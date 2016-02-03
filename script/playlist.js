@@ -29,25 +29,18 @@ $(document).ready()
         console.log("State: stopping");
     }
 
-    function playlist() {
+    function Playlist() {
 
         var actTrack = 0;
         var array = null;
 
-        this.create = function (array1) {
+        this.create = function create(array1) {
             playlistPlaying = this;
             actTrack = 0;
             array = array1;
         };
-        this.next = function () {
-            actTrack = actTrack + 1;
-            start(actTrack);
-        };
-        this.prev = function () {
-            actTrack = actTrack - 1;
-            start(actTrack);
-        };
         this.start = function start(trackNumber) {
+
             var FinishEvent = new CustomEvent("onFinishEvent");
             var PauseEvent = new CustomEvent("onPauseEvent");
             var PlayEvent = new CustomEvent("onPlayEvent");
@@ -132,7 +125,7 @@ $(document).ready()
                         break;
                 }
             } else {
-                console.log("playlist finished");
+                console.log("Playlist finished");
             }
         };
         this.getPL = function getPL() {
@@ -175,7 +168,7 @@ $(document).ready()
     function start(number, id) {
         var playlistOBJ = jQuery.parseJSON(getPlaylist(id));
         var list = playlistOBJ.playlist;
-        var playlistObj = new playlist();
+        var playlistObj = new Playlist();
         playlistObj.create(list);
         playlistObj.start(number);
     }
