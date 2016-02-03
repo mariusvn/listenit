@@ -73,6 +73,8 @@
                                 $_SESSION['user']['username'] = $username;
                                 $_SESSION['user']['password_hash'] = $hashed_password;
                                 $_SESSION['user']['sessionID'] = $sessionID_;
+                                $_SESSION['user']['uuid'] = $UUID;
+
                                 $json = array("status" => "valid", "details" => "success");
                                 die(json_encode($json));
 

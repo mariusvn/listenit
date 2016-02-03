@@ -46,7 +46,7 @@ if(isset($_GET["username"]) && $_GET["username"] != ""){
                 die(json_encode($json));
             }
             $_SESSION['user']['sessionID'] = $sessionID_;
-            $_SESSION['user']['uuid'] = $result['user_uuid'];
+            $_SESSION['user']['uuid'] = $result[0]['user_uuid'];
 
             die(json_encode($json));
 

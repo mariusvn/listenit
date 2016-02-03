@@ -80,9 +80,8 @@
             <div class="item-menu">
               Mes playlists
             </div>
-
-            <div class="item-menu disconnect">
-              Déconnection
+            <div class="item-menu-bottom disconnect">
+              D&eacute;connection
             </div>
           </div>
         </div>

@@ -39,8 +39,8 @@ class web
 
     function ConnValid($Array, $db)
     {
-        $querySTR = ("SELECT * FROM `users` WHERE `user_username`='" . $Array['username'] . "' AND `user_password`='" . $Array['password_hash'] . "' AND `user_sessionID`='" . $Array['sessionID'] . "';");
-        // AND `user_uuid`='" . $Array['uuid'] . "'
+        $querySTR = ("SELECT * FROM `users` WHERE `user_username`='" . $Array['username'] . "' AND `user_password`='" . $Array['password_hash'] . "' AND `user_sessionID`='" . $Array['sessionID'] . "' AND `user_uuid`='" . $Array['uuid'] . "';");
+        //
         $rt = $db->prepare($querySTR);
         $rt->execute();
         $rs0 = $rt->fetchAll();

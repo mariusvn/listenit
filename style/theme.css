@@ -248,8 +248,9 @@ button {
     font-size: 1.1em;
     font-weight: 400;
     transition: 0.3s;
-    bottom: 0;
     width: 210px;
+    position: absolute;
+    bottom:0;
 }
 
 .item-menu-bottom:hover {
