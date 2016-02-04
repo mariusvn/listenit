@@ -10,7 +10,7 @@
     var textToHtml = "<tbody class='playlistTable'><input type='hidden' id='tablePlaylistId' name='playlistId' value='" + playlistId + "'/> <tr class='not_sortable'><td id='channelRow'>Channel</td><td id='titleRow'>Title</td><td >Play</td></tr>";
 
     var trackInfo = new TrackInfos();
-    var PLTArray = PLT.getPL()['Playlist'];
+    var PLTArray = jQuery.parseJSON(getPlaylist(playlistId)).playlist;
 
     for (var i = 0; i < PLTArray.length; i++) {
 

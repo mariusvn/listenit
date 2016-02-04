@@ -19,6 +19,7 @@ $(document).ready(function () {
             }
         })
     });
+    $('#body-container').css('left', $('.left-wrapper').width());
     enterForm();
 });
 function right() {
@@ -118,5 +119,15 @@ function enterForm() {
         if(e.which != 13)
             return;
         $('#register_reg').click();
+    });
+}
+function showUserPlaylists(){
+    $('#body-container').html("loading ...");
+    $.ajax({
+        url: "gui/UserPlaylists.php",
+        dataType: "text",
+        success: function(data){
+            $('#body-container').html(data);
+        }
     });
 }
