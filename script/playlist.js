@@ -172,4 +172,11 @@ $(document).ready()
         playlistObj.create(list);
         playlistObj.start(number);
     }
+
+    function readMusic(network, id){
+        var list = [[network, id]];
+        var playlistObj = new Playlist();
+        playlistObj.create(list);
+        playlistObj.start(0);
+    }
 }

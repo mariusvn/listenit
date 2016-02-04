@@ -13,7 +13,6 @@
       <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
       <script src="https://w.soundcloud.com/player/api.js"></script>
-      <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
       <script src="https://www.youtube.com/iframe_api"></script>
       <script src="script/TrackInfos.js"></script>
       <script src="script/soundcloud.js"></script>

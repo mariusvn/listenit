@@ -191,6 +191,7 @@ button {
     bottom: 0;
     top: 0;
     left: 0;
+    opacity: 0.95;
 }
 
 .left-wrapper > .user-space {
@@ -267,6 +268,7 @@ button {
     color: white;
     overflow-y: auto;
     font-family: Lato;
+    opacity: 0.95;
 
 }
 .playlist-container{
@@ -298,10 +300,13 @@ button {
 .playRow{
 
 }
-.playlistTable tr:nth-child(even){
+tbody{
+    background-color: #2d2d2d;
+}
+tbody tr:nth-child(even){
     background-color: #212121;
 }
-.playlistTable tr:hover{
+tbody tr:hover{
     background-color: #373737;
 }
 .playlistTable a:hover img{
@@ -324,10 +329,16 @@ button {
 }
 #playerDiv{
     z-index: 1000;
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+    bottom: 40px;
     right: 0;
-
+    width: 500px;
+    height: 281px;
+    transform: translate(480px, 0px);
+    transition: transform 0.3s;
+}
+#playerDiv:hover{
+    transform: translate(0px, 0px);
 }
 .not_sortable{
     cursor: default;

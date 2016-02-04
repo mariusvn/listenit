@@ -122,6 +122,8 @@ function enterForm() {
     });
 }
 function showUserPlaylists(){
+    $('#menu-my-playlists').addClass('active');
+    $('#menu-search').removeClass('active');
     $('#body-container').html("loading ...");
     $.ajax({
         url: "gui/UserPlaylists.php",
@@ -132,4 +134,17 @@ function showUserPlaylists(){
         }
     });
 
+}
+function showSearch(){
+    $('#menu-my-playlists').removeClass('active');
+    $('#menu-search').addClass('active');
+    $('#body-container').html("loading ...");
+    $.ajax({
+        url: "gui/search.php",
+        dataType: "text",
+        success: function(data){
+            $('#body-container').html(data);
+            document.title = 'ListenIT - Recherche';
+        }
+    });
 }

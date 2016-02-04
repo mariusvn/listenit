@@ -53,10 +53,10 @@ class web
 
     function getAvatar($uuid)
     {
-        if (file_exists('../imgs/avatars/' . $uuid . '.png')) {
-            $avatar = '../imgs/avatars/' . $uuid . '.png';
+        if (file_exists('imgs/avatars/' . $uuid . '.png')) {
+            $avatar = 'imgs/avatars/' . $uuid . '.png';
         } else {
-            $avatar = '../imgs/avatars/default.png';
+            $avatar = 'imgs/avatars/default.png';
         }
         return $avatar;
     }

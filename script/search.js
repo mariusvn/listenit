@@ -62,15 +62,16 @@ function searcher() {
             if (e.which != 13)
                 return;
             var res = getResultsLocal(searchInput.val());
-            var html = "<div id='searchResult'>";
+            var html = "<tbody id='searchResult'>";
             for (var i = 0; i < res.length; i++) {
-                html += "<div class='search-result-item'>";
-                html += "<table><tr><td><div class='search-result-thumbnail' style='background-image: url(" + res[i]['thumbnail'] + ");'></div></td>";
-                html += "<td><label class='search-result-title'>" + res[i]["title"] + "</label><br/>";
-                html += "<label class='search-result-author'>" + res[i]["channel"] + "</label></td>";
-                html += "</tr></table></div>"
+                html += "<tr><div class='search-result-item'>";
+                html += "<td class='search-result-thumbnail-td'><div class='search-result-thumbnail' style='background-image: url(" + res[i]['thumbnail'] + ");'></div></td>";
+                html += "<td class='search-result-title-td'><label class='search-result-title'>" + res[i]["title"] + "</label></td>";
+                html += "<td class='search-result-author-td'><label class='search-result-author'>" + res[i]["channel"] + "</label></td>";
+                html += "<td class='search-result-play-td'><img src='imgs/media23.png' onclick='readMusic(\"" + res[i]['network'] + '\",\"' + res[i]['id'] + "\");'/></td></tr>"
+                html += "</div>"
             }
-            html += "</div>";
+            html += "</tbody>";
             resultDiv.html(html);
         });
     }

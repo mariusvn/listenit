@@ -1,0 +1,35 @@
+.search-result-thumbnail{
+    width: 100px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+#search-div{
+    margin-left: 40px;
+    width: calc(100% - 80px);
+}
+#search-div tbody{
+    width: 100%;
+}
+#search-div tbody tr .search-result-title-td{
+    width: 70%;
+}
+#search-div tbody tr .search-result-thumbnail-td{
+    width: 110px;
+}
+#search-div tbody tr .search-result-author-td{
+    width: 20%;
+}
+#search-div tbody tr .search-result-play-td{
+    width: 10%;
+}
+#search-title{
+    font-size: 20px;
+}
+#search-div input{
+    font-size: 20px;
+    padding: 5px;
+    margin-top: 20px;
+    margin-left: 10px;
+}

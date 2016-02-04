@@ -17,7 +17,6 @@
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://w.soundcloud.com/player/api.js"></script>
-    <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
 
     <script src="script/TrackInfos.js"></script>
@@ -29,9 +28,11 @@
     <script src="script/userPlaylist.js"></script>
     <script src="script/playerButton.js"></script>
     <script src="script/playlistModif.js"></script>
+    <script src="script/search.js"></script>
     <script type="text/javascript" src="script/main.js"></script>
     <script>
       var txtRenderer = new trackName("#trackName");
+      showUserPlaylists();
     </script>
   </head>
   <body>
@@ -93,8 +94,11 @@
             <div class="item-menu" onClick="displayError('Erreur','Fonctionalit&eacute; non developp&eacute;e')">
               [D]Playlists du mois
             </div>
-            <div class="item-menu active" onClick="showUserPlaylists();">
+            <div class="item-menu active" id="menu-my-playlists" onClick="showUserPlaylists();">
               Mes playlists
+            </div>
+            <div class="item-menu" id="menu-search" onClick="showSearch();">
+              Recherche
             </div>
             <div class="item-menu-bottom disconnect">
               D&eacute;connection
