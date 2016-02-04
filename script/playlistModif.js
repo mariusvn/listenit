@@ -46,6 +46,27 @@ function playlistManager() {
         return res;
 
     }
+    this.add = function(network, trackId, playlistId, callback){
+        var pl = getPlaylist(playlistId);
+        pl.playlist.push([network, trackId]);
+        var res = $.ajax({
+            url: "api/updatePlaylist.php",
+            method: "GET",
+            data: {
+                id: playlistId,
+                plJson: JSON.stringify(pl)
+            },
+            success: function (resText){
+                res = jQuery.parseJSON(resText);
+                if(res.status == "error"){
+                    alert("error: " + resText);
+                }else{
+                    playlistPlaying.setPL(pl.playlist, 0, 0); // 0, 0 is to not modify the actual reading number
+                    callback();
+                }
+            }
+        })
+    }
 }
 function makeSortable(){
     var PlaylistManager = new playlistManager();
@@ -63,6 +84,12 @@ function makeSortable(){
     });
 }
 
+function openAddMenu(network, trackId){
+    var trackInfos = new TrackInfos();
+    $("#track-infos").html("<label>" + trackInfos.getTrackTitle(network, trackId) + "</label>");
+    $("#addToPlaylist-btn").html("<a onclick='new playlistManager().add(\"" + network + "\",\"" + trackId + "\", $(\"#playlist-selector\").val(), function(){$(\"#add-btn\").css(\"display\",\"none\");});'>ajouter à la playlist</a>");
+    $("#add-btn").css("display", "inline-block");
+}
 $(document).ready(function () {
     makeSortable();
 

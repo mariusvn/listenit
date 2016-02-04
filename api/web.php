@@ -60,5 +60,27 @@ class web
         }
         return $avatar;
     }
+
+    function getUserPlaylists($uuid, $db){
+        $result = [];
+        $queryStr = "SELECT * FROM `users` WHERE `user_uuid`='$uuid'";
+        $res = $db->query($queryStr);
+        if($res) {
+            if ($res->rowCount() != 1)
+                return null;
+        }else{
+            return null;
+        }
+        $queryStr = "SELECT * FROM `playlists` WHERE `author`='$uuid';";
+        $res = $db->query($queryStr);
+        if($res){
+            foreach($res as $row){
+                array_push($result, $row);
+            }
+            return $result;
+        }else{
+            return null;
+        }
+    }
 }
 ?>

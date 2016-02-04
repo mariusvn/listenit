@@ -5,12 +5,8 @@ include("web.php");
 $db = connect();
 $apiHandler = new web();
 $json = array("valid" => false, "SQLError" => false, "success" => false, "reason" => "", "result" => array());
-if(!isset($_GET["uuid"]) || !isset($_GET["key"]) || !isset($_GET["perm"])){
+if(!isset($_GET["uuid"])  || !isset($_GET["perm"])){
     $json["reason"] = "please complete parameters";
-    die(json_encode($json));
-}
-if(!$apiHandler->isApiToken($_GET["key"], $db)){
-    $json["reason"] = "api token not valid";
     die(json_encode($json));
 }
 if(!is_numeric($_GET["perm"])){
@@ -22,7 +18,6 @@ if($_GET["perm"] > 2 || $_GET["perm"] < 0){
     die(json_encode($json));
 }
 $uuid = htmlspecialchars($_GET["uuid"]);
-$key = htmlspecialchars($_GET["key"]);
 $perm = htmlspecialchars($_GET["perm"]);
 
 //verification if the uuid is valid

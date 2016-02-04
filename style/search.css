@@ -22,7 +22,10 @@
     width: 20%;
 }
 #search-div tbody tr .search-result-play-td{
-    width: 10%;
+    width: 5%;
+}
+#search-div tbody tr .search-result-add-td{
+    width: 5%;
 }
 #search-title{
     font-size: 20px;
@@ -32,4 +35,40 @@
     padding: 5px;
     margin-top: 20px;
     margin-left: 10px;
+}
+#add-btn{
+    color: black;
+    display: none;
+    position: fixed;
+    width: 500px;
+    z-index: 1000;
+    top: 20px;
+    left: calc(50% - 250px);
+    background-color: white;
+    padding: 0;
+    border-radius: 10px;
+    transition: display 0.3s;
+}
+#addToPlaylist-btn{
+    background-color: #5d5e5d;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.add-btn-top{
+    height: 25px;
+    padding: 5px;
+    width: 100%;
+    background-color: rgba(1, 5, 16, 0.79);
+    color: white;
+}
+.add-btn-top label{
+    margin-left: 150px;
+}
+.add-btn-top img{
+    float: left;
+}
+.add-btn-bottom{
+    padding: 10px;
 }
