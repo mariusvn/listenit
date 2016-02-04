@@ -330,18 +330,22 @@ tbody tr:hover{
 #playerDiv{
     z-index: 1000;
     position: absolute;
-    bottom: 40px;
-    right: 0;
-    width: 500px;
-    height: 281px;
-    transform: translate(480px, 0px);
-    transition: transform 0.3s;
+    left: 0;
+    bottom: 80px;
+    width: 100%;
+    min-width: 200px;
+    min-height: 200px;
 }
 
 #playerDiv:hover,
 #playerDiv.active{
-    transform: translate(0px, 0px);
+
 }
 .not_sortable{
     cursor: default;
+}
+#trackName{
+    position: absolute;
+    bottom: 300px;
+    left: 0;
 }

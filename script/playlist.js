@@ -1,5 +1,6 @@
 $(document).ready()
 {
+
     var playlistPlaying = null;
     var volume = 50;
     var musicTitle = "";
@@ -131,11 +132,11 @@ $(document).ready()
         this.getPL = function getPL() {
             return array;
         };
-        this.setVolume = function setVolume() {
+        this.setVolume = function setVolume(vol) {
             if (playerYT != null) {
-                playerYT.setVolume(volume);
+                playerYT.setVolume(vol);
             } else if (widgetSC != null) {
-                widgetSC.setVolume(volume / 100);
+                widgetSC.setVolume(vol / 100);
             } else {
                 console.log('error #95');
             }

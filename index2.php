@@ -31,7 +31,9 @@
     <script src="script/search.js"></script>
     <script type="text/javascript" src="script/main.js"></script>
     <script>
-      var txtRenderer = new trackName("#trackName");
+      $(document).ready(function(){
+      });
+
       showUserPlaylists();
     </script>
   </head>
@@ -103,6 +105,8 @@
             <div class="item-menu help" id="menu-help" onclick="showHelp();">
               Aide
             </div>
+            <div id="trackName"></div><script>var txtRenderer = new trackName("#trackName");</script>
+            <div id="playerDiv"></div>
             <div class="item-menu-bottom disconnect">
               D&eacute;connection
             </div>
@@ -111,8 +115,7 @@
         <div class="main-wrapper" id="body-container">
 
         </div>
-        <div id="playerDiv"></div>
-        <div id="trackName"></div>
+
     <?php
       }
     ?>
