@@ -128,6 +128,8 @@ function showUserPlaylists(){
         dataType: "text",
         success: function(data){
             $('#body-container').html(data);
+            document.title = 'ListenIT - Mes Playlists';
         }
     });
+
 }

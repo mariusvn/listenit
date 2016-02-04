@@ -51,3 +51,15 @@
     font-size: 20px;
     font-weight: bold;
 }
+.search-result-thumbnail{
+    width: 100px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+.search-result-title{
+    display: inline-block;
+
+
+}

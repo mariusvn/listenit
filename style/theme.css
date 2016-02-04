@@ -251,6 +251,7 @@ button {
     width: 210px;
     position: absolute;
     bottom:0;
+    cursor: pointer;
 }
 
 .item-menu-bottom:hover {
@@ -266,13 +267,36 @@ button {
     color: white;
     overflow-y: auto;
     font-family: Lato;
+
+}
+.playlist-container{
+    background-color: #2d2d2d;
+
+
+}
+.playlist-item{
+    width: calc(100% - 80px);
+    margin-left: 40px;
 }
 .playlistTable{
     border-collapse: collapse;
     background-color: #2d2d2d;
+
+    display: inline-block;
+
 }
 .playlistTable td{
     padding: 8px;
+
+}
+#titleRow{
+    width: 80%;
+}
+#channelRow{
+    width: 20%;
+}
+.playRow{
+
 }
 .playlistTable tr:nth-child(even){
     background-color: #212121;
@@ -285,4 +309,26 @@ button {
 }
 .playlistTable a img{
     filter: brightness(0%);
+}
+.sortable{
+    cursor: pointer;
+}
+.user-playlist h3{
+    font-size: 30px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+.user-playlist h4 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+#playerDiv{
+    z-index: 1000;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+
+}
+.not_sortable{
+    cursor: default;
 }

@@ -17,8 +17,11 @@
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
+
     <script src="script/TrackInfos.js"></script>
+
     <script src="script/soundcloud.js"></script>
     <script src="script/youtube.js"></script>
     <script src="script/playlist.js"></script>
@@ -27,7 +30,9 @@
     <script src="script/playerButton.js"></script>
     <script src="script/playlistModif.js"></script>
     <script type="text/javascript" src="script/main.js"></script>
-
+    <script>
+      var txtRenderer = new trackName("#trackName");
+    </script>
   </head>
   <body>
     <div class="hidden-black"></div>
@@ -99,6 +104,8 @@
         <div class="main-wrapper" id="body-container">
 
         </div>
+        <div id="playerDiv"></div>
+        <div id="trackName"></div>
     <?php
       }
     ?>

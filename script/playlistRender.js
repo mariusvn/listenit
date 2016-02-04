@@ -7,7 +7,7 @@
     PLT.create(jQuery.parseJSON(playlistJSON));
 
     $(divName).empty();
-    var textToHtml = "<tbody class='playlistTable'><input type='hidden' id='tablePlaylistId' name='playlistId' value='" + playlistId + "'/> <tr class='not_sortable'><td id='channelRow'>Channel</td><td id='titleRow'>Title</td><td >Play</td></tr>";
+    var textToHtml = "<tbody class='playlistTable'><input type='hidden' id='tablePlaylistId' name='playlistId' value='" + playlistId + "'/> <tr class='not_sortable'><td id='channelRow'>Channel</td><td id='titleRow'>Title</td><td class='playRow'>Play</td></tr>";
 
     var trackInfo = new TrackInfos();
     var PLTArray = jQuery.parseJSON(getPlaylist(playlistId)).playlist;
