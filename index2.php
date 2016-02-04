@@ -100,6 +100,9 @@
             <div class="item-menu" id="menu-search" onClick="showSearch();">
               Recherche
             </div>
+            <div class="item-menu help" id="menu-help" onclick="showHelp();">
+              Aide
+            </div>
             <div class="item-menu-bottom disconnect">
               D&eacute;connection
             </div>
