@@ -257,3 +257,32 @@ button {
     background-color: #414141;
     transition: 0.3s;
 }
+#body-container{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    color: white;
+    overflow-y: auto;
+    font-family: Lato;
+}
+.playlistTable{
+    border-collapse: collapse;
+    background-color: #2d2d2d;
+}
+.playlistTable td{
+    padding: 8px;
+}
+.playlistTable tr:nth-child(even){
+    background-color: #212121;
+}
+.playlistTable tr:hover{
+    background-color: #373737;
+}
+.playlistTable a:hover img{
+    filter: brightness(50%);
+}
+.playlistTable a img{
+    filter: brightness(0%);
+}

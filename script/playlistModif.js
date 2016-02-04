@@ -47,9 +47,7 @@ function playlistManager() {
 
     }
 }
-
-
-$(document).ready(function () {
+function makeSortable(){
     var PlaylistManager = new playlistManager();
     var pos = [0, 0, 0];
     $('.playlistTable').sortable({
@@ -63,6 +61,10 @@ $(document).ready(function () {
             PlaylistManager.move(pos[0], pos[1], pos[2]);
         }
     });
+}
+
+$(document).ready(function () {
+    makeSortable();
 
 
 });

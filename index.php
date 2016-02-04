@@ -30,11 +30,13 @@
   <body>
     <div id="TrackName"></div>
     <div id="playerDiv" ></div>
+    <div id="div1"></div>
 
     <script>
         var OBJ = new Playlist();
-
+        render("#div1", 1);
         $(document).ready(function(){
+
             OBJ.create(jQuery.parseJSON(getPlaylist(3)));
         });
     </script>

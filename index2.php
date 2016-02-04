@@ -16,7 +16,18 @@
     <link rel="stylesheet" href="style/theme.css">
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script/TrackInfos.js"></script>
+    <script src="script/soundcloud.js"></script>
+    <script src="script/youtube.js"></script>
+    <script src="script/playlist.js"></script>
+    <script src="script/playlistRender.js"></script>
+    <script src="script/userPlaylist.js"></script>
+    <script src="script/playerButton.js"></script>
+    <script src="script/playlistModif.js"></script>
     <script type="text/javascript" src="script/main.js"></script>
+
   </head>
   <body>
     <div class="hidden-black"></div>
@@ -77,7 +88,7 @@
             <div class="item-menu" onClick="displayError('Erreur','Fonctionalit&eacute; non developp&eacute;e')">
               [D]Playlists du mois
             </div>
-            <div class="item-menu active">
+            <div class="item-menu active" onClick="showUserPlaylists();">
               Mes playlists
             </div>
             <div class="item-menu-bottom disconnect">
@@ -85,9 +96,8 @@
             </div>
           </div>
         </div>
-        <div class="main-wrapper">
-          <div id="player"></div>
-          <div id="track"></div>
+        <div class="main-wrapper" id="body-container">
+
         </div>
     <?php
       }
