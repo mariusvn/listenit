@@ -170,6 +170,10 @@ $(document).ready()
         var list = playlistOBJ.playlist;
         var playlistObj = new Playlist();
         playlistObj.create(list);
+        $("#playerDiv").addClass('active');
+        setTimeout(function(){
+            $("#playerDiv").removeClass('active');
+        }, 3000);
         playlistObj.start(number);
     }
 
@@ -177,6 +181,10 @@ $(document).ready()
         var list = [[network, id]];
         var playlistObj = new Playlist();
         playlistObj.create(list);
+        $("#playerDiv").addClass('active');
+        setTimeout(function(){
+            $("#playerDiv").removeClass('active');
+        }, 3000);
         playlistObj.start(0);
     }
 }

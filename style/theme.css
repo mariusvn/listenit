@@ -337,7 +337,9 @@ tbody tr:hover{
     transform: translate(480px, 0px);
     transition: transform 0.3s;
 }
-#playerDiv:hover{
+
+#playerDiv:hover,
+#playerDiv.active{
     transform: translate(0px, 0px);
 }
 .not_sortable{
