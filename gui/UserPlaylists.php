@@ -8,7 +8,7 @@ $apiHandler = new web();
 ?>
 
 <div class="user-playlist">
-  <h3>Vos playlists:</h3><br/>
+  <h3>Vos playlists :</h3><br/>
   <div id="PLY-HOLDER">
   <?php
     $queryStr = "SELECT * FROM `playlists` WHERE `author`='" . $_SESSION['user']['uuid'] . "';";

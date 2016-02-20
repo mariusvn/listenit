@@ -5,8 +5,7 @@ $(document).ready(function () {
         $('.log-wrapper').css('transition', '1.5s cubic-bezier(0.5, 0, 0, 0.5)');
     }, 500);
     $('.hidden-black').click(function () {
-        $('.hidden-black').fadeOut(500);
-        $('.error-box').fadeOut(500);
+        hideError();
     });
     $('.disconnect').click(function () {
         $.ajax({
@@ -28,11 +27,21 @@ function right() {
 function left() {
     $('.log-wrapper').removeClass('right').addClass('left');
 }
+var isErrorDisplayed = false;
 function displayError(title, message) {
     $('.hidden-black').fadeIn(250);
     $('.error-box').fadeIn(250);
     $('.error-box #title').html(title);
     $('.error-box #topic').html(message);
+    isErrorDisplayed = true;
+
+}
+function hideError(){
+    if(isErrorDisplayed == true){
+        $('.hidden-black').fadeOut(250);
+        $('.error-box').fadeOut(250);
+        isErrorDisplayed = false;
+    }
 
 }
 function getString(str) {

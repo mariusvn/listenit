@@ -67,6 +67,8 @@ $(document).ready()
                             musicTitle = "";
                             musicState = musicStates.stop;
                             playerType = playerTypes.error;
+                            musicTitle = "";
+                            txtRenderer.setTrackName(musicTitle);
                             document.body.removeEventListener("onYTFinishEvent", YTfinishHandler);
                             document.body.removeEventListener("onYTPauseEvent", YTPauseHandler);
                             document.body.removeEventListener("onYTPlayEvent", YTPlayHandler);
@@ -101,6 +103,8 @@ $(document).ready()
                             musicTitle = "";
                             musicState = musicStates.stop;
                             playerType = playerTypes.error;
+                            musicTitle = "";
+                            txtRenderer.setTrackName(musicTitle);
                             document.body.removeEventListener("onSCFinishEvent", SCFinishHandler);
                             document.body.removeEventListener("onSCPauseEvent", SCPauseHandler);
                             document.body.removeEventListener("onSCPlayEvent", SCPlayHandler);

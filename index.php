@@ -45,11 +45,11 @@
       <span id="title"></span></br>
       <span id="topic"></span>
     </div>
-    <div class="bg-holder"></div>
     <?php
       if(!$apiH->ConnValid($_SESSION['user'], $db)) {
         unset($_SESSION['user']);
         ?>
+        <div class="bg-holder bg-holder-conn"></div>
         <div class="head-wrapper">
           <h1 id="title">ListenIT</h1>
 
@@ -84,6 +84,7 @@
         <?php
       }else{
         ?>
+        <div class="bg-holder"></div>
         <div class="left-wrapper">
           <div class="user-space" onClick="displayError('Erreur','Fonctionalit&eacute; non developp&eacute;e')">
             <img class="img" src="<?php echo $apiH->getAvatar($_SESSION['user']['uuid']); ?>">
@@ -92,10 +93,10 @@
           </div>
           <div class="under-space">
             <div class="item-menu" onClick="displayError('Erreur','Fonctionalit&eacute; non developp&eacute;e')">
-              [D]Tendances du moment
+              Tendances du moment
             </div>
             <div class="item-menu" onClick="displayError('Erreur','Fonctionalit&eacute; non developp&eacute;e')">
-              [D]Playlists du mois
+              Playlists du mois
             </div>
             <div class="item-menu active" id="menu-my-playlists" onClick="showUserPlaylists();">
               Mes playlists
