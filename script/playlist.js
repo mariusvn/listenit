@@ -1,6 +1,5 @@
 $(document).ready()
 {
-
     var playlistPlaying = null;
     var volume = 50;
     var musicTitle = "";
@@ -57,6 +56,7 @@ $(document).ready()
                         console.log("YouTube");
                         Youtube.startPlayer(track[1]);
                         musicTitle = trackInfos.getTrackTitle(track[0], track[1]);
+                        NotifyNext(musicTitle);
                         txtRenderer.setTrackName(musicTitle);
                         musicState = musicStates.play;
                         playerType = playerTypes.youtube;
@@ -93,6 +93,7 @@ $(document).ready()
                         console.log("SoundCloud");
                         soundcloud.startPlayer(track[1]);
                         musicTitle = trackInfos.getTrackTitle(track[0], track[1]);
+                        NotifyNext(musicTitle);
                         txtRenderer.setTrackName(musicTitle);
                         musicState = musicStates.play;
                         playerType = playerTypes.soundcloud;
@@ -168,8 +169,6 @@ $(document).ready()
             async: false
         }).responseText;
     }
-
-
     function start(number, id) {
         var playlistOBJ = jQuery.parseJSON(getPlaylist(id));
         var list = playlistOBJ.playlist;

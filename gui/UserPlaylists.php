@@ -15,12 +15,10 @@ $apiHandler = new web();
     foreach ($db->query($queryStr) as $row) {
       ?>
       <script>
-          
-          $(document).ready(function () {
-            renderPlaylistv2("#PLY-HOLDER", <?php echo $row['id']; ?>);
-            makeSortable();
-
-          });
+        $(document).ready(function () {
+          renderPlaylistv2("#PLY-HOLDER", <?php echo $row['id']; ?>);
+          makeSortable();
+        });
       </script>
     <?php
       }

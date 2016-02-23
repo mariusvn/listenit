@@ -314,6 +314,22 @@ button {
     font-weight: 300;
     margin-left: 10px;
 }
+.play-btn{
+  background-color: #27ae60;
+  border: none;
+  padding: 2px;
+  font-size: 0.7em;
+  margin-left:10px;
+  color:white;
+}
+.rem-btn{
+  background-color: #c0392b;
+  border: none;
+  padding: 2px;
+  font-size: 0.7em;
+  margin-left:10px;
+  color:white;
+}
 #titleRow{
     width: 70%;
 }
@@ -356,7 +372,7 @@ tbody tr:hover{
     z-index: 1000;
     position: absolute;
     left: 0;
-    bottom: 80px;
+    bottom: 48px;
     width: 100%;
     min-width: 200px;
     min-height: 200px;
@@ -371,6 +387,9 @@ tbody tr:hover{
 }
 #trackName{
     position: absolute;
-    bottom: 300px;
     left: 0;
+    bottom: 248px;
+    padding:10px;
+    color:white;
+    font-size:1.1em;
 }

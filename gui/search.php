@@ -8,6 +8,7 @@ $db = connect();
 <link rel="stylesheet" href="style/search.css"/>
 <div id="search-div">
     <label id="search-title">Recherche: </label><input type="text" id="searchBar"/>
+  </br>
     <div id="searchResult"></div>
     <div id="add-btn">
         <div class="add-btn-top"><img src="imgs/back_white.png" onclick="$('#add-btn').css('display','none');"><label>Ajouter à une playlist</label></div>

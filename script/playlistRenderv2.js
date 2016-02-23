@@ -2,10 +2,10 @@ function renderPlaylistv2(divHolder, playlistID){
 
   //VARS & OBJS
   var playlistC = getPlaylistV2(playlistID);
-  console.log(playlistC);
+  //console.log(playlistC);
   var playlistO = new Playlist();
   var playlistParsed = jQuery.parseJSON(playlistC);
-  console.log(jQuery.parseJSON(playlistParsed[2]).playlist);
+  //console.log(jQuery.parseJSON(playlistParsed[2]).playlist);
   playlistO.create(jQuery.parseJSON(playlistParsed[2]).playlist);
 
   var playlistOBJ = jQuery.parseJSON(playlistParsed[2]).playlist;
@@ -16,6 +16,8 @@ function renderPlaylistv2(divHolder, playlistID){
   renderedHtml += '<div class="playlist-item">';
     renderedHtml += '<div class="playlist-item-title">';
       renderedHtml += playlistTitle;
+      renderedHtml += '<button class="play-btn" onClick="start(0, ' + playlistID + ');">Lire</button>';
+      renderedHtml += '<button class="rem-btn" onClick="">Supprimer</button>';
     renderedHtml += '</div>';
     renderedHtml += "<table>";
       renderedHtml += '<tbody class="playlistTable">';

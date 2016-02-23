@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    if (Notification.permission !== "granted"){
+      Notification.requestPermission();
+    }
     var xcenter = ($('#login-form-block').width() / 2 + 20);
     $('.log-wrapper').css('margin-left', 'calc(50vw - ' + xcenter + 'px)');
     setTimeout(function () {
@@ -173,4 +176,19 @@ function showHelp(){
             document.title = 'ListenIT - Aide';
         }
     });
+}
+function NotifyNext(name){
+  if (!Notification) {
+    alert('Desktop notifications not available in your browser. Try Chrome-Based browser');
+    return;
+  }
+
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+  else {
+    var notification = new Notification('ListenIT', {
+      icon: '../imgs/logo.jpg',
+      body: "Current Music : " + name + "",
+    });
+  }
 }
