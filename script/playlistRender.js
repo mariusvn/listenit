@@ -17,21 +17,9 @@
       var tempTrack = PLTArray[i];
       var title = trackInfo.getTrackTitle(tempTrack[0], tempTrack[1]);
       var author = trackInfo.getTrackAuthor(tempTrack[0], tempTrack[1]);
-      NotifyNext(author + " - " + title);
+
       textToHtml += "<tr class='draggable sortable'><td id='channelRow'>" + author + "</td><td id='titleRow'>" + title + "</td><td class='plerRow playRow'><a onclick='start(" + i + ", " + playlistId + ");'><img src='imgs/media23.png'/> </a></td></tr>";
     }
     textToHtml += "</tbody>";
     $(divName).html(textToHtml);
-  }
-
-  function trackName(divName) {
-    var div = $(divName);
-    var trackName = "";
-    this.setTrackName = function (tn) {
-      trackName = tn;
-      this.actualize();
-    };
-    this.actualize = function () {
-      div.html("<p id='trackTitle'>" + trackName + "</p>");
-    }
   }

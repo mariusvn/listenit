@@ -11,8 +11,8 @@ $json = array("status" => "null", "details" => "null");
 if(isset($_GET['id']) && $_GET['id'] != ""){
     if(isset($_GET['plJson']) && $_GET['plJson'] != "") {
         if (is_numeric($_GET["id"])) {
-            $query = "SELECT * FROM `playlists` WHERE `id`=" . $_GET['id'] . ";";
-            $query = $db->query($query);
+            $queryS = "SELECT * FROM `playlists` WHERE `id`=" . $_GET['id'] . ";";
+            $query = $db->query($queryS);
             if ($query) {
                 $query = $query->fetchAll();
                 if (count($query) > 0) {

@@ -26,8 +26,8 @@
 
     <script src="script/TrackInfos.js"></script>
     <script src="script/playlist.js"></script>
-    <script src="script/playlistRender.js"></script>
     <script src="script/playlistRenderv2.js"></script>
+    <script src="script/trackManager.js"></script>
     <script src="script/userPlaylist.js"></script>
     <script src="script/playerButton.js"></script>
     <script src="script/playlistModif.js"></script>
