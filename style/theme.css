@@ -158,7 +158,7 @@ button {
     right: 0;
     left: 0;
     bottom: 0;
-    z-index: 1001;
+    z-index: 999;
     display: none;
 }
 
@@ -280,7 +280,6 @@ button {
     top: 0;
     bottom: 0;
     right: 0;
-    z-index: 1000;
     color: white;
     overflow-y: auto;
     font-family: Lato;

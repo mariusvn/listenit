@@ -16,27 +16,17 @@ if(isset($_GET['id']) && $_GET['id'] != ""){
             if ($query) {
                 $query = $query->fetchAll();
                 if (count($query) > 0) {
-                    if ($query['restrictionLevel'] == 0 || $query['restrictionLevel'] == 1) {
-                        //public or not displayed
-                        $res = $db->query("UPDATE `playlists` SET `Playlist`='".$_GET['plJson']."' WHERE `id`=".$_GET['id'].";");
-                        if(!$res){
-                            //SQLError
-                            $json = array("status" => "error", "details" => "SQLError.1");
-                            die(json_encode($json));
-                        }
-                        //SUCCESS
-                        $json = array("status" => "valid", "details" => "success");
-                        die(json_encode($json));
+                      //public or not displayed
+                      $res = $db->query("UPDATE `playlists` SET `Playlist`='".$_GET['plJson']."' WHERE `id`=".$_GET['id'].";");
+                      if(!$res){
+                          //SQLError
+                          $json = array("status" => "error", "details" => "SQLError.1");
+                          die(json_encode($json));
+                      }
+                      //SUCCESS
+                      $json = array("status" => "valid", "details" => "success");
+                      die(json_encode($json));
 
-                    } elseif ($query['restrictionLevel'] == 2) {
-                        //private
-                        $json = array("status" => "error", "details" => "private.notImplemented");
-                        die(json_encode($json));
-                    } else {
-                        //RESTRICTIONLEVEL NOT VALID
-                        $json = array("status" => "error", "details" => "restrictionLevel.invalid");
-                        die(json_encode($json));
-                    }
                 } else {
                     //PLAYLIST NOT EXISTS
                     $json = array("status" => "error", "details" => "Playlist.notExists");

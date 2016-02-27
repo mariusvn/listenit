@@ -182,7 +182,6 @@ function NotifyNext(name){
     alert('Desktop notifications not available in your browser. Try Chrome-Based browser');
     return;
   }
-
   if (Notification.permission !== "granted")
     Notification.requestPermission();
   else {

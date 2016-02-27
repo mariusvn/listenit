@@ -26,6 +26,8 @@ function playlistManager() {
                     alert("error: " + resText);
                 } else {
                     playlistPlaying.setPL(pl.playlist, baseIndex, nextIndex);
+                    $('#add-form').fadeOut(250);
+                    $('#bg-black').fadeOut(250);
                 }
 
             }
@@ -46,7 +48,7 @@ function playlistManager() {
         return res;
 
     }
-    this.add = function(network, trackId, playlistId, callback){
+    this.add = function(network, trackId, playlistId){
         var pl = getPlaylist(playlistId);
         pl.playlist.push([network, trackId]);
         var res = $.ajax({
@@ -59,10 +61,9 @@ function playlistManager() {
             success: function (resText){
                 res = jQuery.parseJSON(resText);
                 if(res.status == "error"){
-                    alert("error: " + resText);
+                    displayError(resText);
                 }else{
                     playlistPlaying.setPL(pl.playlist, 0, 0); // 0, 0 is to not modify the actual reading number
-                    callback();
                 }
             }
         })
@@ -86,12 +87,19 @@ function makeSortable(){
 
 function openAddMenu(network, trackId){
     var trackInfos = new TrackInfos();
-    $("#track-infos").html("<label>" + trackInfos.getTrackTitle(network, trackId) + "</label>");
-    $("#addToPlaylist-btn").html("<a onclick='new playlistManager().add(\"" + network + "\",\"" + trackId + "\", $(\"#playlist-selector\").val(), function(){$(\"#add-btn\").css(\"display\",\"none\");});'>ajouter à la playlist</a>");
-    $("#add-btn").css("display", "inline-block");
+
+    $("#title-w").html(trackInfos.getTrackTitle(network, trackId));
+    $("#img-w").html("<img style='width:320px;height:180px;' src='" + trackInfos.getTrackThumb(network, trackId) + "'>");
+    $("#add-btn-done").attr("onClick", 'new playlistManager().add("' + network + '","' + trackId + '", $("#playlist-selector").val(), function(){$(\"#add-form\").fadeOut(250);});');
+    $('#bg-black').fadeIn(250);
+    $("#add-form").fadeIn(250);
+    //$("#add-form").css("display", "inline-block");
+
+
+    //$("#addToPlaylist-btn").html("<a onclick=''>ajouter à la playlist</a>");
+
 }
+
 $(document).ready(function () {
     makeSortable();
-
-
 });

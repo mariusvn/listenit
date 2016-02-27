@@ -72,3 +72,57 @@
 .add-btn-bottom{
     padding: 10px;
 }
+#bg-black{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  display:none;
+}
+#add-form{
+  position: absolute;
+  top: 40px;
+  margin-left: calc(50% - 275px);
+  background-color: #212121;
+  max-width: 550px;
+  display: none;
+  z-index:1002;
+}
+.cross{
+  background-color:#c0392b;
+  padding:2px;
+  padding-left:6px;
+  padding-right:6px;
+  position: relative;
+  float:right;
+  cursor:pointer;
+}
+.title{
+  padding:8px;
+}
+.top-wrapped{
+  border-bottom:1px #424242 solid;
+}
+#info-container{
+  padding:15px;
+  background-color:#212121;
+}
+#img-w{
+  margin-right:10px;
+  float:left;
+}
+#title-w{
+  float:left;
+  text-overflow: ellipsis;
+}
+#playlist-selector{
+  float:left;
+}
+#add-btn-done{
+  float:left;
+}
+.clr-fx{
+  clear:both;
+}

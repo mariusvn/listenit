@@ -61,4 +61,25 @@ function TrackInfos(){
         return null;
     }
   }
+  this.getTrackThumb = function(network, id){
+    switch(network){
+      case "yt":
+        var val = "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
+        return val;
+      break;
+
+      case "sc":
+        var ret = $.ajax({
+          url: "http://api.soundcloud.com/tracks/"+id+"?client_id=2d28682500313c875bb5bbd8fe96ebad",
+          async: false
+        }).responseText;
+        
+        ret = jQuery.parseJSON(ret);
+        ret = ret.artwork_url;
+        return ret;
+      break;
+      default:
+        return null;
+    }
+  }
 }
