@@ -23,7 +23,49 @@ $(document).ready(function () {
     });
     $('#body-container').css('left', $('.left-wrapper').width());
     enterForm();
+    //context menu NON FONCTIONNEL
+    //TODO finir le context menu
+    /*$(document).on("contextmenu", ".draggable", function(e){
+        e.preventDefault();
+        $(".context-menu").data("music-id", this.id);
+        $(".context-menu").data("music-network", this.id);
+        $(".context-menu").html(
+            "<div id='context-menu-container'>" +
+            "<table>" +
+            "<tr><td>Delete" + $(".context-menu").data('music-network') + "</td></tr>" +
+            "</table>" +
+            "</div>"
+        );
+
+        $(".context-menu").finish().toggle(100);
+        $(".context-menu").css({
+            top: e.pageY + "px",
+            left: e.pageX + "px"
+        })
+    });
+    $(document).on("mousedown", function(e){
+        if (!$(e.target).parents(".context-menu").length > 0) {
+            $(".context-menu").hide(100);
+        }
+    });*/
+
+    /*$(".draggable").contextmenu({
+        selector: ".draggable",
+        callback: function(key, option){
+            var m = "clicked: " + key;
+            window.console && console.log(m) || alert(m);
+        },
+        items: {
+            delete: {name: "edit"}
+        }
+    })*/
 });
+var gui = {
+    userPlaylist: "userPlaylist",
+    search: "search",
+    help: "help"
+};
+var activeGui = gui.userPlaylist;
 function right() {
     $('.log-wrapper').removeClass('left').addClass('right');
 }
@@ -146,6 +188,7 @@ function showUserPlaylists(){
             document.title = 'ListenIT - Mes Playlists';
         }
     });
+    activeGui = gui.userPlaylist;
 
 }
 function showSearch(){
@@ -161,6 +204,7 @@ function showSearch(){
             document.title = 'ListenIT - Recherche';
         }
     });
+    activeGui = gui.search;
 }
 
 function showHelp(){
@@ -176,6 +220,7 @@ function showHelp(){
             document.title = 'ListenIT - Aide';
         }
     });
+    activeGui = gui.help;
 }
 function NotifyNext(name){
   if (!Notification) {

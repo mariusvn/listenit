@@ -21,6 +21,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://w.soundcloud.com/player/api.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.ui-contextmenu/1.11.0/jquery.ui-contextmenu.min.js" type="text/javascript"></script>
 
     <script src="script/soundcloud.js"></script>
     <script src="script/youtube.js"></script>
@@ -48,6 +49,7 @@
       <span id="title"></span></br>
       <span id="topic"></span>
     </div>
+    <div class="context-menu">context menu</div>
     <?php
       if(!$apiH->ConnValid($_SESSION['user'], $db)) {
         unset($_SESSION['user']);

@@ -27,7 +27,7 @@ function renderPlaylistv2(divHolder, playlistID){
           var tempTrack = jQuery.parseJSON(playlistParsed[2]).playlist[i];
           var title = trackInfo.getTrackTitle(tempTrack[0], tempTrack[1]);
           var author = trackInfo.getTrackAuthor(tempTrack[0], tempTrack[1]);
-          renderedHtml += "<tr class='draggable sortable'><td>#" + (i + 1) + "</td><td id='channelRow'>" + author + "</td><td id='titleRow'>" + title + "</td><td class='plerRow playRow'><a onclick='start(" + i + ", " + playlistID + ");'><img src='imgs/media23.png'/> </a></td></tr>";
+          renderedHtml += "<tr class='draggable sortable'><td>#" + (i + 1) + "</td><td id='channelRow'>" + author + "</td><td id='titleRow'>" + title + "</td><td class='plerRow playRow'><a onclick='start(" + i + ", " + playlistID + ");'><img src='imgs/media23.png'/> </a></td><input type='hidden' name='track-id' id='track-id' value='" + tempTrack[1] + "'/><input type='hidden' name='track-network' id='track-network' value='" + tempTrack[0] + "'/> </tr>";
         }
         renderedHtml += "</tbody>";
       renderedHtml += "</table>";
