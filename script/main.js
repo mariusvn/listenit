@@ -25,18 +25,19 @@ $(document).ready(function () {
     enterForm();
     //context menu NON FONCTIONNEL
     //TODO finir le context menu
-    /*$(document).on("contextmenu", ".draggable", function(e){
-        e.preventDefault();
-        $(".context-menu").data("music-id", this.id);
-        $(".context-menu").data("music-network", this.id);
-        $(".context-menu").html(
-            "<div id='context-menu-container'>" +
-            "<table>" +
-            "<tr><td>Delete" + $(".context-menu").data('music-network') + "</td></tr>" +
-            "</table>" +
-            "</div>"
-        );
+    $(document).on("contextmenu", ".draggable", function(e){
 
+        e.preventDefault();
+        var vTrack = new TrackInfos();
+        var context_render = "";
+
+        context_render += "<div id='context-menu-container'>";
+          context_render += "<table>";
+            context_render += "<tr><td>Delete " + vTrack.getTrackTitle($( this ).find('#track-network').val(), $( this ).find('#track-id').val()) + "</td></tr>";
+          context_render += "</table>";
+        context_render += "</div>";
+
+        $(".context-menu").html(context_render);
         $(".context-menu").finish().toggle(100);
         $(".context-menu").css({
             top: e.pageY + "px",
@@ -47,9 +48,9 @@ $(document).ready(function () {
         if (!$(e.target).parents(".context-menu").length > 0) {
             $(".context-menu").hide(100);
         }
-    });*/
+    });
 
-    /*$(".draggable").contextmenu({
+    $(".draggable").contextmenu({
         selector: ".draggable",
         callback: function(key, option){
             var m = "clicked: " + key;
@@ -58,7 +59,7 @@ $(document).ready(function () {
         items: {
             delete: {name: "edit"}
         }
-    })*/
+    });
 });
 var gui = {
     userPlaylist: "userPlaylist",
