@@ -23,17 +23,19 @@ $(document).ready(function () {
     });
     $('#body-container').css('left', $('.left-wrapper').width());
     enterForm();
+
     //context menu NON FONCTIONNEL
     //TODO finir le context menu
     $(document).on("contextmenu", ".draggable", function(e){
 
+        var context = $( this );
         e.preventDefault();
         var vTrack = new TrackInfos();
         var context_render = "";
 
         context_render += "<div id='context-menu-container'>";
           context_render += "<table>";
-            context_render += "<tr><td>Delete " + vTrack.getTrackTitle($( this ).find('#track-network').val(), $( this ).find('#track-id').val()) + "</td></tr>";
+            context_render += "<tr id='ctx'><td>Delete " + vTrack.getTrackTitle($( this ).find('#track-network').val(), $( this ).find('#track-id').val()) + "</td></tr>";
           context_render += "</table>";
         context_render += "</div>";
 
@@ -42,7 +44,10 @@ $(document).ready(function () {
         $(".context-menu").css({
             top: e.pageY + "px",
             left: e.pageX + "px"
-        })
+        });
+        $("#ctx").click(function(){
+          context.fadeOut(250);
+        });
     });
     $(document).on("mousedown", function(e){
         if (!$(e.target).parents(".context-menu").length > 0) {
@@ -67,12 +72,14 @@ var gui = {
     help: "help"
 };
 var activeGui = gui.userPlaylist;
+
 function right() {
     $('.log-wrapper').removeClass('left').addClass('right');
 }
 function left() {
     $('.log-wrapper').removeClass('right').addClass('left');
 }
+
 var isErrorDisplayed = false;
 function displayError(title, message) {
     $('.hidden-black').fadeIn(250);
@@ -91,26 +98,18 @@ function hideError(){
 
 }
 function getString(str) {
-    if (str == "username.empty")
-        return "Le champ nom d'utilisateur est vide.";
-    if (str == "password.empty")
-        return "Le champ mot de passe est vide.";
-    if (str == "email.empty")
-        return "Le champ e-mail est vide.";
-    if (str == "password2.empty")
-        return "le champ confirmation de mot de passe est vide.";
-    if (str == "login.wrong")
-        return "le nom d'utilisateur ou le mot de passe est éronné.";
-    if (str == "SQLError")
-        return "Bug de requête SQL, veuillez reporter l'erreur \"SQLError\"";
-    if (str == "passwords.nomatch")
-        return "Les deux mots de passes ne sont pas les mêmes.";
-    if (str == "username.took")
-        return "Le nom d'utilisateur est déjà utilisé par un autre utilisateur";
-    if (str == "email.took")
-        return "L'e-mail est déjà utilisé.";
+  
+  var userLang = navigator.language || navigator.userLanguage;
 
-    return str;
+  var URL_tr = "lang/" + userLang.toUpperCase() + "_" + userLang + ".json";
+  var JS_OBJ = $.ajax({
+      url: URL_tr,
+      async: false
+  }).responseText;
+
+  var array = jQuery.parseJSON(JS_OBJ);
+
+  return array[str];
 
 }
 function register() {

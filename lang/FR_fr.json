@@ -1,0 +1,11 @@
+﻿{
+	"username.empty" : "Nom d'utilisateur vide.",
+	"password.empty" : "Mot de passe vide.",
+	"email.empty" : "Email vide.",
+	"password2.empty" : "Confirmation du mot de passe vide.",
+	"login.wrong" : "Nom d'utilisateur ou Mot de passe incorrect.",
+	"SQLError" : "Erreur #01, merci de contacter le support.",
+	"passwords.nomatch" : "Les deux mots de passes ne sont pas identiques.",
+	"username.took" : "Nom de d'Utilisateur déjà utilisé.",
+	"email.took" : "Cet Email est déjà utilisé."
+}

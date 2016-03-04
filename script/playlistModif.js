@@ -29,7 +29,6 @@ function playlistManager() {
                     $('#add-form').fadeOut(250);
                     $('#bg-black').fadeOut(250);
                 }
-
             }
         })
 
@@ -93,10 +92,6 @@ function openAddMenu(network, trackId){
     $("#add-btn-done").attr("onClick", 'new playlistManager().add("' + network + '","' + trackId + '", $("#playlist-selector").val(), function(){$(\"#add-form\").fadeOut(250);});');
     $('#bg-black').fadeIn(250);
     $("#add-form").fadeIn(250);
-    //$("#add-form").css("display", "inline-block");
-
-
-    //$("#addToPlaylist-btn").html("<a onclick=''>ajouter à la playlist</a>");
 
 }
 

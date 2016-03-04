@@ -1,0 +1,11 @@
+{
+	"username.empty" : "Username can't be empty.",
+	"password.empty" : "Password can't be empty.",
+	"email.empty" : "Email can't be empty.",
+	"password2.empty" : "Password confirmation can't be empty.",
+	"login.wrong" : "Wrong Username or password.",
+	"SQLError" : "Error #01, please contact us!",
+	"passwords.nomatch" : "Both passwords are'nt the same.",
+	"username.took" : "This username is already taken, sorry :(",
+	"email.took" : "This email is already taken, sorry :("
+}
