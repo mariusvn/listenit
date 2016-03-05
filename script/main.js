@@ -24,8 +24,7 @@ $(document).ready(function () {
     $('#body-container').css('left', $('.left-wrapper').width());
     enterForm();
 
-    //context menu NON FONCTIONNEL
-    //TODO finir le context menu
+    //context menu
     $(document).on("contextmenu", ".draggable", function(e){
 
         var context = $( this );

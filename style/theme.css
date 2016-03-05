@@ -409,3 +409,7 @@ tbody tr:hover{
     padding-right: 10px;
     cursor: pointer;
 }
+
+#ctx{
+    font-family: Lato;
+}
