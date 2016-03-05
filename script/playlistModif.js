@@ -67,6 +67,27 @@ function playlistManager() {
             }
         })
     }
+    this.remove = function(trackIndex, playlistID){
+      var PL = getPlaylist(playlistID);
+      PL.playlist.splice(trackIndex, 1);
+
+      var res = $.ajax({
+          url: "api/updatePlaylist.php",
+          method: "GET",
+          data: {
+              id: playlistID,
+              plJson: JSON.stringify(PL)
+          },
+          success: function (resText){
+              res = jQuery.parseJSON(resText);
+              if(res.status == "error"){
+                  displayError(resText);
+              }else{
+                  playlistPlaying.setPL(PL.playlist, 0, 0); // 0, 0 is to not modify the actual reading number
+              }
+          }
+      })
+    }
 }
 function makeSortable(){
     var PlaylistManager = new playlistManager();

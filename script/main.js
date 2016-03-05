@@ -35,7 +35,11 @@ $(document).ready(function () {
 
         context_render += "<div id='context-menu-container'>";
           context_render += "<table>";
-            context_render += "<tr id='ctx'><td>Delete " + vTrack.getTrackTitle($( this ).find('#track-network').val(), $( this ).find('#track-id').val()) + "</td></tr>";
+            context_render += "<tr id='ctx'>";
+              context_render += "<input type='hidden' id='track-id-temp' value='" + $( this ).find('#ply-index').val() + "' />";
+              context_render += "<input type='hidden' id='ply-id-temp' value='" + $( this ).find('#ply-id').val() + "' />";
+              context_render += "<td>Delete " + vTrack.getTrackTitle($( this ).find('#track-network').val(), $( this ).find('#track-id').val()) + "</td>";
+            context_render += "</tr>";
           context_render += "</table>";
         context_render += "</div>";
 
@@ -46,7 +50,13 @@ $(document).ready(function () {
             left: e.pageX + "px"
         });
         $("#ctx").click(function(){
-          context.fadeOut(250);
+          console.log('id : ' + $( this ).find("#track-id-temp").val());
+          var plmg = new playlistManager();
+
+          plmg.remove($( this ).find('#track-id-temp').val(), $( this ).find('#ply-id-temp').val());
+
+          $(".context-menu").hide(100);
+          showUserPlaylists();
         });
     });
     $(document).on("mousedown", function(e){
@@ -98,7 +108,7 @@ function hideError(){
 
 }
 function getString(str) {
-  
+
   var userLang = navigator.language || navigator.userLanguage;
 
   var URL_tr = "lang/" + userLang.toUpperCase() + "_" + userLang + ".json";
@@ -108,7 +118,9 @@ function getString(str) {
   }).responseText;
 
   var array = jQuery.parseJSON(JS_OBJ);
-
+  console.log(URL_tr);
+  console.log(array);
+  console.log(array[str]);
   return array[str];
 
 }
@@ -152,7 +164,8 @@ function login() {
         success: function (ret) {
             var json = jQuery.parseJSON(ret);
             if (json.status == "error" && json.details != null) {
-                displayError("Erreur", json.details);
+                displayError("Erreur", getString(json.details));
+                console.log(json.details);
                 $("login_log").prop('disabled', false);
             } else {
                 skip();
@@ -179,7 +192,7 @@ function showUserPlaylists(){
     $('#menu-my-playlists').addClass('active');
     $('#menu-search').removeClass('active');
     $('#menu-help').removeClass('active');
-    $('#body-container').html("loading ...");
+    $('#body-container').html('<div id="rl-black" style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;background-color: rgba(0,0,0,0.6);"></div><div class="uil-ellipsis-css" style="transform:scale(0.6);position: absolute;    top: 50%;    left: 50%;    margin: -60px 0 0 -60px;"><div class="ib"><div class="circle"><div></div></div><div class="circle"><div></div></div><div class="circle"><div></div></div><div class="circle"><div></div></div></div></div>');
     $.ajax({
         url: "gui/UserPlaylists.php",
         dataType: "text",
@@ -191,11 +204,30 @@ function showUserPlaylists(){
     activeGui = gui.userPlaylist;
 
 }
+function reloadUserPlaylists(){
+  $('#menu-my-playlists').addClass('active');
+  $('#menu-search').removeClass('active');
+  $('#menu-help').removeClass('active');
+  $('#body-container').append('<div id="rl-black" style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;background-color: rgba(0,0,0,0.6);"></div>');
+  $('#body-container').append('<div class="uil-ellipsis-css" style="transform:scale(0.6);position: absolute;    top: 50%;    left: 50%;    margin: -60px 0 0 -60px;"><div class="ib"><div class="circle"><div></div></div><div class="circle"><div></div></div><div class="circle"><div></div></div><div class="circle"><div></div></div></div></div>');
+  console.log('reloaded');
+  $.ajax({
+      url: "gui/UserPlaylists.php",
+      dataType: "text",
+      success: function(data){
+          $('#body-container').html(data);
+          document.title = 'ListenIT - Mes Playlists';
+      }
+  });
+  activeGui = gui.userPlaylist;
+
+}
 function showSearch(){
     $('#menu-my-playlists').removeClass('active');
     $('#menu-search').addClass('active');
     $('#menu-help').removeClass('active');
-    $('#body-container').html("loading ...");
+    $('#body-container').append('<div id="rl-black" style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;background-color: rgba(0,0,0,0.6);"></div>');
+    $('#body-container').append('<div class="uil-ellipsis-css" style="transform:scale(0.6);position: absolute;    top: 50%;    left: 50%;    margin: -60px 0 0 -60px;"><div class="ib"><div class="circle"><div></div></div><div class="circle"><div></div></div><div class="circle"><div></div></div><div class="circle"><div></div></div></div></div>');
     $.ajax({
         url: "gui/search.php",
         dataType: "text",
