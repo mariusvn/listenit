@@ -34,7 +34,7 @@
     font-size: 20px;
     padding: 5px;
     margin-top: 20px;
-    margin-left: 10px;
+    margin-left: 0px;
 }
 #add-btn{
     color: black;
@@ -125,4 +125,13 @@
 }
 .clr-fx{
   clear:both;
+}
+
+.create-playlist input{
+    margin-left: 10px;
+
+}
+.create-playlist button{
+    display: inline-block;
+    margin-top: 10px;
 }

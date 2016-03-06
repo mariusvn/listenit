@@ -88,6 +88,23 @@ function playlistManager() {
           }
       })
     }
+    this.create = function(plName, musicId, musicNetwork){
+        var res = $.ajax({
+            url: "api/createPlaylist.php",
+            method: "GET",
+            data: {
+                playlistName: plName
+            },
+            success: function(resText){
+                res = jQuery.parseJSON(resText);
+                if(res.status == "error"){
+                    displayError(resText);
+                }else{
+                    //todo add the music to the playlist
+                }
+            }
+        })
+    }
 }
 function makeSortable(){
     var PlaylistManager = new playlistManager();

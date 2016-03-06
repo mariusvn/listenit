@@ -19,16 +19,22 @@
     </div>
     <div id="info-container">
       <div id="img-w"></div>
-      <div id="title-w"></div>
-      <select id="playlist-selector">
-        <?php
-          $userPlaylists = $apiHandler->getUserPlaylists($_SESSION['user']['uuid'], $db);
-          foreach($userPlaylists as $row){
-              echo("<option value='" . $row['id'] ."'>" . $row['name'] . "</option>");
-            }
-        ?>
-      </select>
-      <button id="add-btn-done">Ajouter</button>
+      <div>
+        <div id="title-w"></div>
+        <select id="playlist-selector">
+          <?php
+            $userPlaylists = $apiHandler->getUserPlaylists($_SESSION['user']['uuid'], $db);
+            foreach($userPlaylists as $row){
+                echo("<option value='" . $row['id'] ."'>" . $row['name'] . "</option>");
+              }
+          ?>
+        </select>
+        <button id="add-btn-done">Ajouter</button>
+      </div>
+      <div class="create-playlist">
+        <input class="create-playlist-plname" type="text" maxlength="20" placeholder="nom" />
+        <button onclick="modifier = new playlistManager(); modifier.create($('.create-playlist-plname').val(), '', ''); //todo finir">Créer</button>
+      </div>
       <div class="clr-fx"></div>
     </div>
   </div>
