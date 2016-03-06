@@ -16,7 +16,10 @@ if(isset($_SESSION['user']['uuid']) && $_SESSION['user']['uuid'] != ""){
             $json = array("status" => "error", "details" => "SQLError");
             die(json_encode($json));
         }
-        $json = array("status" => "success", "details" => "null");
+        $lastId = $db->lastInsertId();
+        $jsonId = array("id" => $lastId);
+        $json = array("status" => "success", "details" => $jsonId);
+        die(json_encode($json));
     } else {
         //playlistName isn't defined
         $json = array("status" => "error", "details" => "playlistName.empty");

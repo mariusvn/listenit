@@ -33,7 +33,7 @@
       </div>
       <div class="create-playlist">
         <input class="create-playlist-plname" type="text" maxlength="20" placeholder="nom" />
-        <button onclick="modifier = new playlistManager(); modifier.create($('.create-playlist-plname').val(), '', ''); //todo finir">Créer</button>
+        <button class="create-playlist-btn">Créer</button>
       </div>
       <div class="clr-fx"></div>
     </div>

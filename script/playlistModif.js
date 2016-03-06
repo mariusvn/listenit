@@ -47,7 +47,7 @@ function playlistManager() {
         return res;
 
     }
-    this.add = function(network, trackId, playlistId){
+    this.add = function add(network, trackId, playlistId){
         var pl = getPlaylist(playlistId);
         pl.playlist.push([network, trackId]);
         var res = $.ajax({
@@ -99,8 +99,31 @@ function playlistManager() {
                 res = jQuery.parseJSON(resText);
                 if(res.status == "error"){
                     displayError(resText);
+                    return resText;
                 }else{
-                    //todo add the music to the playlist
+                    //success
+                    var rowID = res.details.id;
+                    var playlistId = rowID;
+                    var trackId = musicId;
+                    var network = musicNetwork;
+                    var pl = getPlaylist(playlistId);
+                    pl.playlist.push([network, trackId]);
+                    var res = $.ajax({
+                        url: "api/updatePlaylist.php",
+                        method: "GET",
+                        data: {
+                            id: playlistId,
+                            plJson: JSON.stringify(pl)
+                        },
+                        success: function (resText){
+                            res = jQuery.parseJSON(resText);
+                            if(res.status == "error"){
+                                displayError(resText);
+                            }else{
+                                playlistPlaying.setPL(pl.playlist, 0, 0); // 0, 0 is to not modify the actual reading number
+                            }
+                        }
+                    })
                 }
             }
         })
@@ -128,6 +151,7 @@ function openAddMenu(network, trackId){
     $("#title-w").html(trackInfos.getTrackTitle(network, trackId));
     $("#img-w").html("<img style='width:320px;height:180px;' src='" + trackInfos.getTrackThumb(network, trackId) + "'>");
     $("#add-btn-done").attr("onClick", 'new playlistManager().add("' + network + '","' + trackId + '", $("#playlist-selector").val(), function(){$(\"#add-form\").fadeOut(250);});');
+    $(".create-playlist-btn").attr("onClick", 'modifier = new playlistManager(); modifier.create($(".create-playlist-plname").val(), "' + trackId + '", "' + network + '");');
     $('#bg-black').fadeIn(250);
     $("#add-form").fadeIn(250);
 
