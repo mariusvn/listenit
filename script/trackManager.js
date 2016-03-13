@@ -3,7 +3,7 @@ function trackName(divName) {
   var trackName = "";
   this.setTrackName = function (tn) {
     trackName = tn;
-    this.actualize();
+    div.html("<p id='trackTitle'>" + trackName + "</p>");
   };
   this.actualize = function () {
     div.html("<p id='trackTitle'>" + trackName + "</p>");

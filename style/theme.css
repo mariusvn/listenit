@@ -198,7 +198,7 @@ button {
 
 .left-wrapper {
     background-color: #212121;
-    z-index: 999;
+    z-index: 980;
     width: 250px;
     color: white;
     font-family: Lato;
@@ -329,6 +329,14 @@ button {
   margin-left:10px;
   color:white;
 }
+.theater-btn{
+  background-color: #3a9bdc;
+  border: none;
+  padding: 2px;
+  font-size: 0.7em;
+  margin-left:10px;
+  color:white;
+}
 #titleRow{
     width: 70%;
 }
@@ -371,7 +379,6 @@ tbody tr:hover{
     z-index: 1000;
     position: absolute;
     left: 0;
-    bottom: 48px;
     width: 100%;
     min-width: 200px;
     min-height: 200px;
@@ -387,10 +394,11 @@ tbody tr:hover{
 #trackName{
     position: absolute;
     left: 0;
-    bottom: 248px;
+    bottom: 200px;
     padding:10px;
     color:white;
     font-size:1.1em;
+    font-weight: bold;
 }
 .context-menu{
     z-index: 1002;

@@ -56,12 +56,12 @@ function searcher() {
     };
 
     this.assignSearch = function assignSearchLocal(searchInput, resultDiv) {
-        searchInput = $(searchInput);
-        resultDiv = $(resultDiv);
-        searchInput.on("keypress", function (e) {
+        //searchInput = $(searchInput);
+        //resultDiv = $(resultDiv);
+        $(searchInput).on("keypress", function (e) {
             if (e.which != 13)
                 return;
-            var res = getResultsLocal(searchInput.val());
+            var res = getResultsLocal($(searchInput).val());
             var html = "<tbody id='searchResult'>";
             for (var i = 0; i < res.length; i++) {
                 html += "<tr>";
@@ -75,7 +75,7 @@ function searcher() {
                 html += "</tr>";
             }
             html += "</tbody>";
-            resultDiv.html(html);
+            $(resultDiv).html(html);
         });
     }
 }

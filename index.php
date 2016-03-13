@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="style/theme.css">
     <link rel="stylesheet" href="style/search.css">
     <link rel="stylesheet" href="style/loading.css">
+    <link rel="stylesheet" href="style/theater.css">
 
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -36,6 +37,7 @@
     <script src="script/playlistModif.js"></script>
     <script src="script/search.js"></script>
     <script src="script/main.js"></script>
+    <script src="script/TheaterRender.js"></script>
     <script>
       $(document).ready(function(){
       });
@@ -91,6 +93,15 @@
       }else{
         ?>
         <div class="bg-holder"></div>
+
+        <div class="theater-black"></div>
+        <div class="theater-mode">
+          <div class="closer">X</div>
+          <div id="trackNameTH"></div>
+          <div id="track-list-2">
+
+          </div>
+        </div>
         <div class="left-wrapper">
           <div class="user-space" onClick="displayError('Erreur','Fonctionalit&eacute; non developp&eacute;e')">
             <img class="img" src="<?php echo $apiH->getAvatar($_SESSION['user']['uuid']); ?>">

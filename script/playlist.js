@@ -180,7 +180,26 @@ $(document).ready()
         }, 3000);
         playlistObj.start(number);
     }
+    function startTH(id){
+      $('#playerDiv').attr('id', 'playerDiv-temp');
 
+      txtRenderer = new trackName("#trackNameTH");
+      setTimeout(function(){
+        var playlistOBJ = jQuery.parseJSON(getPlaylist(id));
+        var lisdt = playlistOBJ.playlist;
+        var plOBJ = new Playlist();
+
+
+        $('.theater-mode').fadeIn(100);
+        $('.theater-black').fadeIn(100);
+
+        $('.theater-mode').html($('.theater-mode').html() + '<div id="playerDiv" style="width: 1000px; height: 100%;"></div>');
+        
+        plOBJ.create(lisdt);
+        plOBJ.start(0);
+
+      }, 1500);
+    }
     function readMusic(network, id){
         var list = [[network, id]];
         var playlistObj = new Playlist();
