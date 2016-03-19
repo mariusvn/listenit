@@ -382,6 +382,7 @@ tbody tr:hover{
     width: 100%;
     min-width: 200px;
     min-height: 200px;
+    bottom: 50px;
 }
 
 #playerDiv:hover,

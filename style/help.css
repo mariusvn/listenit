@@ -1,0 +1,20 @@
+#help-div .question{
+    border: solid white 1px;
+    margin: 10px;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: #1E1F1F;
+    margin-bottom: 15px;
+}
+#help-div .question .question-title{
+    font-size: 20px;
+    margin: 10px 5px 10px 5px;
+}
+#help-div .question .answer{
+    margin-top: 10px;
+    margin-left: 15px;
+}
+#help-div .question .reason{
+    margin-left: 20px;
+    margin-top: 10px;
+}

@@ -1,14 +1,15 @@
 <div id="help-div">
+    <link rel="stylesheet" href="style/help.css"/>
     <div class="question" id="question1">
-        CSS A DEVELEOPPER<br/>
-        <label>Mes musiques ne s'enchainent pas, que faire?</label><br/>
-        <div class="answear">
+
+        <label class="question-title">Mes musiques ne s'enchainent pas, que faire?</label>
+        <div class="answer">
             <p>
                 Sortez l'onglet de la page:<br/>
-                -maintenez le click sur l'onglet listenit de votre navigateur<br/>
-                -glissez le hors de la page<br/>
-                -cela va creer une seconde page<br/>
-                -ne pas creer d'autre onglets sur la page
+                &nbsp;&nbsp;&nbsp;-maintenez le click sur l'onglet listenit de votre navigateur<br/>
+                &nbsp;&nbsp;&nbsp;-glissez le hors de la page<br/>
+                &nbsp;&nbsp;&nbsp;-cela va creer une seconde page<br/>
+                &nbsp;&nbsp;&nbsp;-ne pas creer d'autre onglets sur la page
             </p>
             <div class="reason">
                 <p>
