@@ -261,6 +261,7 @@ button {
 }
 
 .item-menu-bottom {
+    z-index:996;
     padding: 15px;
     font-size: 1.1em;
     font-weight: 300;
@@ -376,13 +377,13 @@ tbody tr:hover{
     margin-top: 20px;
 }
 #playerDiv{
-    z-index: 1000;
+    z-index: 995;
     position: absolute;
     left: 0;
     width: 100%;
     min-width: 200px;
     min-height: 200px;
-    bottom: 50px;
+    bottom:0px;
 }
 
 #playerDiv:hover,
@@ -408,9 +409,8 @@ tbody tr:hover{
     color: white;
     background-color: #121314;
     border-radius: 5px;
-    border-color: #303130;
-    border: solid 1px;
-    pdding: 0px;
+    border: solid 1px #303130;
+    padding: 0px;
 }
 .context-menu td{
     padding: 5px;
@@ -421,4 +421,7 @@ tbody tr:hover{
 
 #context-menu-container{
     font-family: Lato;
+}
+.currentPL{
+    background-color:#2c3e50;
 }

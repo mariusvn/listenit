@@ -7,5 +7,7 @@
 	"SQLError" : "Error #01, please contact us!",
 	"passwords.nomatch" : "Both passwords are'nt the same.",
 	"username.took" : "This username is already taken, sorry :(",
-	"email.took" : "This email is already taken, sorry :("
+	"email.took" : "This email is already taken, sorry :(",
+	"function.notcreated" : "Dot not put your eyes there again !",
+	"error" : "Error :("
 }

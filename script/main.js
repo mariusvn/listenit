@@ -126,9 +126,9 @@ function getString(str) {
     }).responseText;
 
     var array = jQuery.parseJSON(JS_OBJ);
-    console.log(URL_tr);
-    console.log(array);
-    console.log(array[str]);
+    //console.log(URL_tr);
+    //console.log(array);
+    //console.log(array[str]);
     return array[str];
 
 }

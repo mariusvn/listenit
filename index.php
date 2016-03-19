@@ -41,7 +41,6 @@
     <script>
       $(document).ready(function(){
       });
-
       showUserPlaylists();
     </script>
   </head>
@@ -103,16 +102,16 @@
           </div>
         </div>
         <div class="left-wrapper">
-          <div class="user-space" onClick="displayError('Erreur','Fonctionalit&eacute; non developp&eacute;e')">
+          <div class="user-space" onClick="displayError(getString('error'), getString('function.notcreated'))">
             <img class="img" src="<?php echo $apiH->getAvatar($_SESSION['user']['uuid']); ?>">
             <div class="username"><?php echo $_SESSION['user']['username']; ?></div>
             <div class="clear-fix"></div>
           </div>
           <div class="under-space">
-            <div class="item-menu" onClick="displayError('Erreur','Fonctionalit&eacute; non developp&eacute;e')">
+            <div class="item-menu" onClick="displayError(getString('error'), getString('function.notcreated'))">
               Tendances du moment
             </div>
-            <div class="item-menu" onClick="displayError('Erreur','Fonctionalit&eacute; non developp&eacute;e')">
+            <div class="item-menu" onClick="displayError(getString('error'), getString('function.notcreated'))">
               Playlists du mois
             </div>
             <div class="item-menu active" id="menu-my-playlists" onClick="showUserPlaylists();">

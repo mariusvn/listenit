@@ -86,7 +86,32 @@ function playlistManager() {
                   playlistPlaying.setPL(PL.playlist, 0, 0); // 0, 0 is to not modify the actual reading number
               }
           }
-      })
+      });
+    }
+    this.removePlaylist = function(playlistID){
+
+        if(confirm("Supprimer ?") == true){
+            console.log('remove status : yes');
+            var res = $.ajax({
+                url: 'api/removePlaylist.php',
+                method: 'GET',
+                data:{
+                    id: playlistID
+                },
+                success : function(resText){
+                    var resT = $.parseJSON(resText);
+                    if(resT.status == "error"){
+                        console.log(resText.details);
+                        displayError(getString('error'), getString(resText.details));
+                    }else{
+                        reloadUserPlaylists();
+                    }
+                }
+            });
+        }else {
+            console.log('remove status : no');
+        }
+
     }
     this.create = function(plName, musicId, musicNetwork){
         var res = $.ajax({

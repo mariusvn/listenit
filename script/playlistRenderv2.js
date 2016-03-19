@@ -16,7 +16,8 @@ function renderPlaylistv2(divHolder, playlistID){
     renderedHtml += '<div class="playlist-item-title">';
       renderedHtml += playlistTitle;
       renderedHtml += '<button class="play-btn" onClick="start(0, ' + playlistID + ');">Lire</button>';
-      renderedHtml += '<button class="rem-btn" onClick="">Supprimer</button>';
+      renderedHtml += '<button class="theater-btn" onClick="startTH(' + playlistID + '); renderPlaylistTH(' + playlistID + ');">Mode theatre</button>';
+      renderedHtml += '<button class="rem-btn" onClick="var mge = new playlistManager(); mge.removePlaylist(' + playlistID + ');">Supprimer</button>';
     renderedHtml += '</div>';
     renderedHtml += "<table>";
       renderedHtml += '<tbody class="playlistTable">';

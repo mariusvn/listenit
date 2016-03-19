@@ -7,5 +7,7 @@
 	"SQLError" : "Erreur #01, merci de contacter le support.",
 	"passwords.nomatch" : "Les deux mots de passes ne sont pas identiques.",
 	"username.took" : "Nom de d'Utilisateur déjà utilisé.",
-	"email.took" : "Cet Email est déjà utilisé."
+	"email.took" : "Cet Email est déjà utilisé.",
+	"function.notcreated" : "Fonction non developpée",
+	"error": "Erreur système"
 }

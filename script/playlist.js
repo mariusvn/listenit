@@ -161,6 +161,9 @@ $(document).ready()
                 actTrack++;
             }
         }
+        this.getCurrentTrackID = function(){
+            return this.actTrack;
+        }
     }
 
     function getPlaylist(id) {
